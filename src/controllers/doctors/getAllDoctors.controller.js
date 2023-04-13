@@ -11,7 +11,7 @@ const axios = require("axios");
 //   filterByTemp
 // } = require("../../helpers");
 
-const getAllDoctorsController = async (limit, page, filter, created, weight, temp ) => {
+const getAllDoctorsController = async ( rating, specialty, price, disease, limit, page ) => {
   // const localDbRaw = await Doctor.findAll(objTemplate);
   // const localDb = arrayCleaner(localDbRaw);
   // const { data } = await axios.get(
