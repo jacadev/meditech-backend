@@ -1,4 +1,3 @@
-// jugando con las branches
 const { Router } = require("express");
 const patientsRouter = Router();
 const {
