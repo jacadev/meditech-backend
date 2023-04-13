@@ -1,7 +1,7 @@
 const { getAllDoctorsController } = require("../../controllers");
 
 const getAllDoctorsHandler = async (req, res) => {
-  const { limit, page, filter, created, weight, temp } = req.query;
+  const { rating, specialty, price, diseasecreated, weight, temp } = req.query;
   try {
     const allDoctors = await getAllDoctorsController(
       limit,
