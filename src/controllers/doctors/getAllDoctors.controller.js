@@ -1,6 +1,6 @@
 require("dotenv").config();
-const { API_KEY } = process.env;
-//const { Doctor } = require("../../db");
+// const { API_KEY } = process.env;
+const { Doctor, Specialty } = require("../../db");
 const axios = require("axios");
 // const {
 //   arrayCleaner,
@@ -11,7 +11,19 @@ const axios = require("axios");
 //   filterByTemp
 // } = require("../../helpers");
 
-const getAllDoctorsController = async ( rating, specialty, price, disease, limit, page ) => {
+const getAllDoctorsController = async () => {
+
+  const response = await Doctor.findAll({
+    include: [{
+      model: Specialty, 
+      attributes: ['specialty'], 
+      through: {attributes: []}
+    }]
+  });
+
+  console.log('estoy buscando a mis doctores', response);
+  return response
+
   // const localDbRaw = await Doctor.findAll(objTemplate);
   // const localDb = arrayCleaner(localDbRaw);
   // const { data } = await axios.get(

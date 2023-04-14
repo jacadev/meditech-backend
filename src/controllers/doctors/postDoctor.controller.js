@@ -1,22 +1,26 @@
-//const { Doctor, Patient } = require("../../db");
+const { Doctor} = require("../../db");
 
-const postDoctorController = async (name, life_span, patient, weight, height, image) => {
-  // const newDoctor = await Doctor.create({
-  //   name,
-  //   life_span,
-  //   weight,
-  //   height,
-  //   image,
-  // });
+const postDoctorController = async (user_name, email, password, first_name, last_name, about_me, profile_image, tuition_code, consultation_cost, location, phone, diseases_treated, specialties) => {
+  const newDoctor = await Doctor.create({
+    userName: user_name, 
+    email: email, 
+    password: password, 
+    firstName: first_name, 
+    lastName: last_name, 
+    aboutMe: about_me, 
+    profileImage: profile_image, 
+    tuitionCode: tuition_code, 
+    consultationCost: consultation_cost, 
+    location: location, 
+    phone: phone, 
+    diseasesTreated: diseases_treated
+  });
+  
+  console.log('doctor creado exitosamente', newDoctor);
+  await newDoctor.addSpecialties(specialties)
 
-  // for (const tempName of patient) {
-  //   const temp = await Patient.findOne({ where: { name: tempName } });
-  //   if (temp) {
-  //     await newDoctor.addPatient(temp);
-  //   }
-  // }
+  return newDoctor;
 
-  // return newDoctor;
 };
 
 module.exports = postDoctorController;
