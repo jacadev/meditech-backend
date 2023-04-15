@@ -15,10 +15,13 @@ for (key in sequelize.models) {
   delete sequelize.models[key];
 }
 
-const { Doctor, Patient, Specialty, Doctor_specialty, Review } = sequelize.models;
+const { Doctor, Patient, Specialty, Doctor_specialty, Review, Person } = sequelize.models;
 
 Doctor.belongsToMany(Specialty, { through: Doctor_specialty });
 Specialty.belongsToMany(Doctor, { through: Doctor_specialty });
 Patient.hasMany(Review, { foreignKey: 'patient_id' });
+Doctor.belongsTo(Person, {foreignKey: 'personId'});
+
+console.log('los modelos', sequelize.models);
 
 module.exports = { ...sequelize.models, sequelize };

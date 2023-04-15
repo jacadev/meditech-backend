@@ -1,9 +1,15 @@
 const { DataTypes } = require("sequelize");
+// const Person = require('./person.model');
 
 module.exports = (sequelize) => {
   sequelize.define(
     "doctor",
     {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
       aboutMe: {
         field: "about_me",
         type: DataTypes.STRING,

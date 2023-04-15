@@ -7,12 +7,14 @@ const postDoctorHandler = async (req, res) => {
     password, 
     first_name, 
     last_name, 
+    phone, 
+    age,
+    gender,
     about_me, 
     profile_image, 
     tuition_code, 
     consultation_cost, 
     location, 
-    phone, 
     diseases_treated,
     specialties
   } = req.body;
@@ -24,12 +26,14 @@ const postDoctorHandler = async (req, res) => {
       password, 
       first_name, 
       last_name, 
+      phone, 
+      age,
+      gender,
       about_me, 
       profile_image, 
       tuition_code, 
       consultation_cost, 
       location, 
-      phone, 
       diseases_treated,
       specialties
     );

@@ -1,61 +1,27 @@
 require("dotenv").config();
-// const { API_KEY } = process.env;
-const { Doctor, Specialty } = require("../../db");
+const { Doctor, Specialty, Person } = require("../../db");
 const axios = require("axios");
-// const {
-//   arrayCleaner,
-//   objTemplate,
-//   pagination,
-//   orderByName,
-//   orderByWeight,
-//   filterByTemp
-// } = require("../../helpers");
+
 
 const getAllDoctorsController = async () => {
 
   const response = await Doctor.findAll({
-    include: [{
-      model: Specialty, 
-      attributes: ['specialty'], 
-      through: {attributes: []}
-    }]
+    include: [
+      {
+        model: Specialty, 
+        attributes: ['specialty'], 
+        through: {attributes: []}
+      },
+      {
+        model: Person,
+        attributes: ['userName', 'email', 'firstName', 'lastName', 'phone', 'age', 'gender']
+      }
+    ]
   });
 
   console.log('estoy buscando a mis doctores', response);
   return response
 
-  // const localDbRaw = await Doctor.findAll(objTemplate);
-  // const localDb = arrayCleaner(localDbRaw);
-  // const { data } = await axios.get(
-  //   `https://api.thedoctorapi.com/v1/doctors?api_key=${API_KEY}`
-  // );
-  // const apiDoctors = arrayCleaner(data);
-
-  // if (created) {
-  //   if (created.toLowerCase() === "db") return localDb;
-  //   if (created.toLowerCase() === "api") return apiDoctors;
-  // }
-
-  // const dbMerged = [...apiDoctors, ...localDb];
-
-  // if(temp) {
-  //   const tempFiltered = filterByTemp(temp, dbMerged)
-  //   return tempFiltered
-  // }
-
-  // if (filter) {
-  //   const nameOrdered = orderByName(filter, dbMerged);
-  //   return nameOrdered;
-  // }
-
-  // if (weight) {
-  //   const weightOrdered = orderByWeight(weight, dbMerged);
-  //   return weightOrdered;
-  // }
-
-  // const paginationResult = pagination(limit, page, dbMerged);
-
-  // return paginationResult;
 };
 
 module.exports = getAllDoctorsController;
