@@ -10,8 +10,6 @@ app.listen(port, async () => {
     await Specialty.bulkCreate(preloadSpecialtiesHelper);
     await Rol.bulkCreate(preloadRolsHelper);
   })
-  // .then( async() => {
-  // });
 
   console.log(`App listening on port ${port}`);
 

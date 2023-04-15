@@ -10,7 +10,7 @@ const postDoctorHandler = async (req, res) => {
     phone, 
     age,
     gender,
-    rol,
+    rol_id,
     about_me, 
     profile_image, 
     tuition_code, 
@@ -30,7 +30,7 @@ const postDoctorHandler = async (req, res) => {
       phone, 
       age,
       gender,
-      rol,
+      rol_id,
       about_me, 
       profile_image, 
       tuition_code, 
@@ -41,7 +41,7 @@ const postDoctorHandler = async (req, res) => {
     );
     res.status(201).json(doctorPosted);
   } catch (error) {
-    res.status(404).json({ error: error.message });
+    res.status(404).send('soy el error al crear al doctor');
   }
 };
 

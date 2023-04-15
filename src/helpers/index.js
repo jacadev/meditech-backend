@@ -6,6 +6,7 @@ const orderByRatingHelper = require('./orderByRating.helper');
 const paginationHelper = require('./pagination.helper');
 const preloadSpecialtiesHelper = require('./preloadSpecialties.helper');
 const preloadRolsHelper = require('./preloadRols.helper');
+const preloadDoctorsHelper = require('./preloadDoctors.helper');
 
 
 module.exports = {
@@ -16,5 +17,6 @@ module.exports = {
   orderByRatingHelper,
   paginationHelper,
   preloadSpecialtiesHelper,
-  preloadRolsHelper
+  preloadRolsHelper,
+  preloadDoctorsHelper
 };
