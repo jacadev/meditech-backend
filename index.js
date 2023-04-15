@@ -4,6 +4,7 @@ const {
   preloadSpecialtiesHelper,
   preloadRolesHelper,
   preloadDoctorsHelper,
+  preloadPersonsHelper
 } = require("./src/helpers");
 const { sequelize, Specialty, Rol } = require("./src/db");
 const axios = require("axios");
@@ -16,6 +17,13 @@ app.listen(port, async () => {
       await axios.post(
         "http://localhost:3001/doctors",
         preloadDoctorsHelper[i]
+      );
+    }
+    // preloadPersonsHelper.forEach(element => postPatientController(element))
+    for (let i = 0; i < preloadPersonsHelper.length; i++) {
+      await axios.post(
+        "http://localhost:3001/patients",
+        preloadPersonsHelper[i]
       );
     }
   });
