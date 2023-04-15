@@ -1,4 +1,4 @@
-const specialties = [
+const preloadSpecialties = [
     { specialty: 'Ginecólogo' },
     { specialty: 'Dermatólogo' },
     { specialty: 'Pediatra' },
@@ -67,4 +67,4 @@ const specialties = [
     { specialty: 'Cirujano oncólogo' }
 ]
   
-module.exports = specialties;
+module.exports = preloadSpecialties;
