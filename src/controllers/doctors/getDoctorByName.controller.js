@@ -1,35 +1,37 @@
-require("dotenv").config();
-const { API_KEY } = process.env;
-const axios = require("axios");
 const { Op } = require("sequelize");
-//const { Doctor } = require("../db");
-//const { arrayCleaner, objTemplate } = require("../helpers");
+const { Doctor, Specialty, Person, Rol } = require("../../db");
 
 const getDoctorByNameController = async (doctorName) => {
-  // if (doctorName) {
-  //   const localDbRaw = await Doctor.findAll({
-  //     ...objTemplate,
-  //     where: {
-  //       name: {
-  //         [Op.iLike]: `%${doctorName}%`,
-  //       },
-  //     },
-  //   });
-  //   const localDb = arrayCleaner(localDbRaw);
-  //   const { data } = await axios.get(
-  //     `https://api.thedoctorapi.com/v1/breeds?api_key=${API_KEY}`
-  //   );
-  //   const apiDoctors = arrayCleaner(data);
-  //   const dbMerged = [...apiDoctors, ...localDb];
-  //   const filtered = dbMerged.filter((found) =>
-  //     found.name.toLowerCase().includes(doctorName.toLowerCase())
-  //   );
-  //   if (filtered.length !== 0) return filtered;
-  //   return filtered;
-  // }
-  // throw new Error(
-  //   "You must provide at least a name by query to perform a search"
-  // );
+  const nameFilter = doctorName.toLowerCase();
+
+  const doctorFilter = await Doctor.findAll({
+    include: [
+      {
+        model: Specialty,
+        attributes: ['specialty'],
+        through: { attributes: [] }
+      },
+      {
+        model: Person,
+        attributes: ['userName', 'email', 'firstName', 'lastName', 'phone', 'age', 'gender', 'rol_id'],
+        include: [
+          {
+            model: Rol,
+            attributes: ['nameRol']
+          }
+        ]
+      }
+    ],
+    where: {
+      [Op.or]: [
+        { firstName: { [Op.like]: `%${nameFilter}%` } },
+        { lastName: { [Op.like]: `%${nameFilter}%` } },
+        { [Op.and]: Sequelize.literal(`lower(concat("firstName", ' ', "lastName")) like '%${nameFilter}%'`) }
+      ]
+    }
+  });
+
+  return doctorFilter;
 };
 
 module.exports = getDoctorByNameController;
