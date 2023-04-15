@@ -1,13 +1,17 @@
 const app = require("./src/app");
 const port = 3001;
-const {preloadSpecialtiesHelper} = require("./src/helpers")
-const { sequelize, Specialty } = require("./src/db");
+const {preloadSpecialtiesHelper, preloadRolsHelper} = require("./src/helpers")
+const { sequelize, Specialty, Rol } = require("./src/db");
 
 app.listen(port, async () => {
 
-  sequelize.sync({ force: true }).then( async () => {
-    await Specialty.bulkCreate(preloadSpecialtiesHelper)
-  });
+  sequelize.sync({ force: true })
+  .then( async () => {
+    await Specialty.bulkCreate(preloadSpecialtiesHelper);
+    await Rol.bulkCreate(preloadRolsHelper);
+  })
+  // .then( async() => {
+  // });
 
   console.log(`App listening on port ${port}`);
 

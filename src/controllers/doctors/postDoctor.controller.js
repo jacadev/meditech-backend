@@ -1,6 +1,6 @@
 const { Doctor, Person} = require("../../db");
 
-const postDoctorController = async (user_name, email, password, first_name, last_name, phone, age, gender, about_me, profile_image, tuition_code, consultation_cost, location, diseases_treated, specialties) => {
+const postDoctorController = async (user_name, email, password, first_name, last_name, phone, age, gender, rol, about_me, profile_image, tuition_code, consultation_cost, location, diseases_treated, specialties) => {
 
   const newPerson = await Person.create({
     userName: user_name, 
@@ -10,7 +10,8 @@ const postDoctorController = async (user_name, email, password, first_name, last
     lastName: last_name, 
     phone: phone,
     age: age,
-    gender: gender
+    gender: gender,
+    rol_id: rol
   });
   
   const newDoctor = await Doctor.create({
@@ -22,10 +23,9 @@ const postDoctorController = async (user_name, email, password, first_name, last
     diseasesTreated: diseases_treated
   });
   
-  await newDoctor.setPerson(newPerson);
+  await newDoctor.setPerson(newPerson); //  establece la relación entre un doctor y su información personal
   await newDoctor.addSpecialties(specialties)
 
-  console.log('doctor creado exitosamente', newDoctor);
   return newDoctor;
 
 };

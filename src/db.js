@@ -15,12 +15,30 @@ for (key in sequelize.models) {
   delete sequelize.models[key];
 }
 
-const { Doctor, Patient, Specialty, Doctor_specialty, Review, Person } = sequelize.models;
+const { Doctor, Patient, Specialty, Doctor_specialty, Review, Person, Rol } = sequelize.models;
 
 Doctor.belongsToMany(Specialty, { through: Doctor_specialty });
 Specialty.belongsToMany(Doctor, { through: Doctor_specialty });
 Patient.hasMany(Review, { foreignKey: 'patient_id' });
-Doctor.belongsTo(Person, {foreignKey: 'personId'});
+Doctor.belongsTo(Person, {foreignKey: 'person_id'});
+
+// define la relacion entre rol y person
+Rol.hasMany(Person, {
+  foreignKey: {
+    name: "rol_id",
+    allowNull: false,
+  },
+  onDelete: "RESTRICT",
+});
+
+Person.belongsTo(Rol, {
+  foreignKey: {
+    name: "rol_id",
+    allowNull: false,
+  },
+  onDelete: "RESTRICT",
+});
+
 
 console.log('los modelos', sequelize.models);
 
