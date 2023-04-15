@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
       },
       aboutMe: {
         field: "about_me",
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       profileImage: {

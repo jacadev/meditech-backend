@@ -12,27 +12,6 @@ const getAllDoctorsController = async () => {
       },
       {
         model: Person,
-<<<<<<< HEAD
-        attributes: [
-          "userName",
-          "email",
-          "firstName",
-          "lastName",
-          "phone",
-          "age",
-          "gender",
-          "rol_id",
-        ],
-        include: [
-          {
-            model: Rol,
-            attributes: ["nameRol"],
-          },
-        ],
-      },
-    ],
-  });
-=======
         attributes: ['user_name', 'email', 'first_name', 'last_name', 'phone', 'age', 'gender','password'],
         include: [
           {
@@ -43,7 +22,6 @@ const getAllDoctorsController = async () => {
       }
     ]
   })
->>>>>>> a012529e2b256537fdd4df7f47c95dcefb3deef3
 
   // console.log('estoy buscando a mis doctores', response);
   return response;

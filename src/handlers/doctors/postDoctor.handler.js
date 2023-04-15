@@ -41,7 +41,7 @@ const postDoctorHandler = async (req, res) => {
     );
     res.status(201).json(doctorPosted);
   } catch (error) {
-    res.status(404).send('soy el error al crear al doctor');
+    res.status(404).send({ error: error.message });
   }
 };
 
