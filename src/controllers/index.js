@@ -19,6 +19,10 @@ const getAllSpecialtiesController = require("./specialties/getAllSpecialties.con
 const postSpecialtieController = require("./specialties/postSpecialtie.controller");
 const updateSpecialtieByIdController = require("./specialties/updateSpecialtieById.controller");
 
+// Cita Controller
+const getAllCitasController = require("./citas/getAllCitas.controller");
+const postCitaController = require("./citas/postCita.controller");
+
 module.exports = {
   getAllDoctorsController,
   getDoctorByNameController,
@@ -34,5 +38,7 @@ module.exports = {
   deletePatientByIdController,
   getAllSpecialtiesController,
   postSpecialtieController,
-  updateSpecialtieByIdController
+  updateSpecialtieByIdController,
+  getAllCitasController,
+  postCitaController
 };

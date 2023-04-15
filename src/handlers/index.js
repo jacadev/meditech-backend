@@ -19,6 +19,10 @@ const getAllSpecialtiesHandler = require('./specialties/getAllSpecialties.handle
 const postSpecialtieHandler = require('./specialties/postSpecialtie.handler');
 const updateSpecialtieByIdHandler = require('./specialties/updateSpecialtieById.handler');
 
+// Citas handlers
+const getAllCitasHandler = require("./citas/getAllCitas.handler");
+const postCitaHandler = require("./citas/postCita.handler");
+
 module.exports = {
   getAllDoctorsHandler,
   getDoctorByNameHandler,
@@ -34,5 +38,7 @@ module.exports = {
   deletePatientByIdHandler,
   getAllSpecialtiesHandler,
   postSpecialtieHandler,
-  updateSpecialtieByIdHandler
+  updateSpecialtieByIdHandler,
+  getAllCitasHandler,
+  postCitaHandler
 }
