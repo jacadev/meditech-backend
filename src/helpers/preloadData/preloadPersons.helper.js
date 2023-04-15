@@ -1,4 +1,4 @@
-const arrayTemplatePersons = [
+const preloadPersons = [
   {
     id: 1,
     userName: 'Bret',
@@ -12,7 +12,7 @@ const arrayTemplatePersons = [
   },
   {
     id: 2,
-    username: 'Antonette',
+    userName: 'Antonette',
     email: 'Shanna@melissa.tv',
     password: '678912',
     firstName: 'Ervin',
@@ -23,7 +23,7 @@ const arrayTemplatePersons = [
   },
   {
     id: 3,
-    username: 'Samantha',
+    userName: 'Samantha',
     email: 'Nathan@yesenia.net',
     password: '345678',
     firstName: 'Clementine',
@@ -34,7 +34,7 @@ const arrayTemplatePersons = [
   },
   {
     id: 4,
-    username: 'Karianne',
+    userName: 'Karianne',
     email: 'Julianne.OConner@kory.org',
     password: '912345',
     firstName: 'Patricia',
@@ -45,7 +45,7 @@ const arrayTemplatePersons = [
   },
   {
     id: 5,
-    username: 'Kamren',
+    userName: 'Kamren',
     email: 'Lucio_Hettinger@annie.ca',
     password: '234567',
     firstName: 'Chelsey',
@@ -56,7 +56,7 @@ const arrayTemplatePersons = [
   },
   {
     id: 6,
-    username: 'Leopoldo',
+    userName: 'Leopoldo',
     email: 'Karley_Dach@jasper.info',
     password: '891234',
     firstName: 'Dennis',
@@ -67,7 +67,7 @@ const arrayTemplatePersons = [
   },
   {
     id: 7,
-    username: 'Elwyn',
+    userName: 'Elwyn',
     email: 'Telly.Hoeger@billy.biz',
     password: '567891',
     firstName: 'Kurtis',
@@ -78,7 +78,7 @@ const arrayTemplatePersons = [
   },
   {
     id: 8,
-    username: 'Maxime',
+    userName: 'Maxime',
     email: 'Sherwood@rosamond.me',
     password: '345678',
     firstName: 'Nicholas',
@@ -89,7 +89,7 @@ const arrayTemplatePersons = [
   },
   {
     id: 9,
-    username: 'Delphine',
+    userName: 'Delphine',
     email: 'Chaim_McDermott@dana.io',
     firstname: 'Glenna',
     lastName: 'Reichert',
@@ -99,7 +99,7 @@ const arrayTemplatePersons = [
   },
   {
     id: 10,
-    username: 'Stanton',
+    userName: 'Stanton',
     email: 'Rey.Padberg@karina.biz',
     firstName: 'Clementina',
     lastName: 'DuBuque',
@@ -109,7 +109,7 @@ const arrayTemplatePersons = [
   },
   {
     id: 11,
-    username: 'Decor',
+    userName: 'Decor',
     email: 'liliana.gomez@email.com',
     password: 'luz1234',
     firstName: 'Liliana',
@@ -120,7 +120,7 @@ const arrayTemplatePersons = [
   },
   {
     id: 12,
-    username: 'juanco',
+    userName: 'juanco',
     email: 'juanco@email.com',
     firstName: 'Juan',
     lastName: 'Duque',
@@ -130,7 +130,7 @@ const arrayTemplatePersons = [
   },
   {
     id: 13,
-    username: 'danher',
+    userName: 'danher',
     email: 'herrerafdanilo@gmail.com',
     password: 'dan1423',
     firstName: 'Danilo',
@@ -141,7 +141,7 @@ const arrayTemplatePersons = [
   },
   {
     id: 14,
-    username: 'July',
+    userName: 'July',
     email: 'juliadeherrera@gmail.com',
     password: 'july1971',
     firstName: 'Julia',
@@ -152,7 +152,7 @@ const arrayTemplatePersons = [
   },
   {
     id: 15,
-    username: 'alferez',
+    userName: 'alferez',
     email: 'ricardo.jimenez@gmail.com',
     password: 'richard_123',
     firstName: 'Ricardo',
@@ -162,3 +162,5 @@ const arrayTemplatePersons = [
     gender: 'Masculino',
   },
 ];
+
+module.exports = preloadPersons;
