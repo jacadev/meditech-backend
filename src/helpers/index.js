@@ -7,6 +7,7 @@ const paginationHelper = require("./pagination.helper");
 const preloadSpecialtiesHelper = require("./preloadData/preloadSpecialties.helper");
 const preloadRolesHelper = require("./preloadData/preloadRoles.helper");
 const preloadReviews = require("./preloadData/preloadReviews.helper");
+const preloadPersons = require("./preloadData/preloadPersons.helper");
 const preloadDoctors = require("./preloadData/preloadDoctors.helper");
 
 module.exports = {
@@ -19,5 +20,6 @@ module.exports = {
   preloadSpecialtiesHelper,
   preloadRolesHelper,
   preloadReviews,
+  preloadPersons,
   preloadDoctors,
 };

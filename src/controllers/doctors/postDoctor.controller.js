@@ -1,4 +1,4 @@
-const { Doctor, Person} = require("../../db");
+const { Doctor, Person } = require("../../db");
 
 const postDoctorController = async (user_name, email, password, first_name, last_name, phone, age, gender, rol, about_me, profile_image, tuition_code, consultation_cost, location, diseases_treated, specialties) => {
 
