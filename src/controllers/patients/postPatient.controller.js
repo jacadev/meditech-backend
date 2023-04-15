@@ -3,7 +3,7 @@ const { Patient, Person } = require('../../db');
 const postPatientController = async (
   user_name,
   email,
-  hash,
+  password,
   first_name,
   last_name,
   phone,
@@ -14,7 +14,7 @@ const postPatientController = async (
   const newPerson = await Person.create({
     userName: user_name,
     email: email,
-    password: hash,
+    password: password,
     firstName: first_name,
     lastName: last_name,
     phone: phone,

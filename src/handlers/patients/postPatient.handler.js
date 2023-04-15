@@ -14,13 +14,11 @@ const postPatientHandler = async (req, res) => {
     rol,
   } = req.body;
   try {
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(password, salt);
-
+    
     const patientPosted = await postPatientController(
       user_name,
       email,
-      hash,
+      password,
       first_name,
       last_name,
       phone,
