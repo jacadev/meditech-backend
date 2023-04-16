@@ -4,9 +4,10 @@ const {
   preloadSpecialtiesHelper,
   preloadRolesHelper,
   preloadDoctorsHelper,
-  preloadPersonsHelper
+  preloadPersonsHelper,
+  preloadReviewsHelper
 } = require("./src/helpers");
-const { sequelize, Specialty, Rol } = require("./src/db");
+const { sequelize, Specialty, Rol, Review } = require("./src/db");
 const axios = require("axios");
 
 app.listen(port, async () => {
@@ -26,6 +27,7 @@ app.listen(port, async () => {
         preloadPersonsHelper[i]
       );
     }
+    await Review.bulkCreate(preloadReviewsHelper); 
   });
   console.log(`App listening on port ${port}`);
   console.log("Types specialties pre-loaded");
