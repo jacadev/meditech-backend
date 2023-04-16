@@ -20,7 +20,7 @@ const { Doctor, Patient, Specialty, Doctor_specialty, Review, Person, Rol } = se
 Doctor.belongsToMany(Specialty, { through: Doctor_specialty });
 Specialty.belongsToMany(Doctor, { through: Doctor_specialty });
 Doctor.belongsTo(Person, {foreignKey: 'person_id'});
-Patient.belongsTo(Person, {foreignKey: 'patient_id'})
+Patient.belongsTo(Person, {foreignKey: 'person_id'})
 
 // define la relacion entre rol y person
 Rol.hasMany(Person, {
