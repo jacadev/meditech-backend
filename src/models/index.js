@@ -4,6 +4,9 @@ const specialtyModel = require("./specialty.model");
 const doctorSpecialtyModel = require("./doctorSpecialty.model");
 const reviewModel = require("./review.model");
 const appointmentModel = require("./appointment.model");
+const personModel = require("./person.model");
+const rolModel = require("./rol.model");
+const citaModel = require("./cita.model");
 
 module.exports = {
   doctorModel,
@@ -12,4 +15,7 @@ module.exports = {
   specialtyModel,
   reviewModel,
   appointmentModel,
+  personModel,
+  rolModel,
+  citaModel
 };

@@ -1,49 +1,30 @@
 require("dotenv").config();
-const { API_KEY } = process.env;
-//const { Doctor } = require("../../db");
-const axios = require("axios");
-// const {
-//   arrayCleaner,
-//   objTemplate,
-//   pagination,
-//   orderByName,
-//   orderByWeight,
-//   filterByTemp
-// } = require("../../helpers");
+const { Doctor, Specialty, Person, Rol } = require("../../db");
 
-const getAllDoctorsController = async (limit, page, filter, created, weight, temp ) => {
-  // const localDbRaw = await Doctor.findAll(objTemplate);
-  // const localDb = arrayCleaner(localDbRaw);
-  // const { data } = await axios.get(
-  //   `https://api.thedoctorapi.com/v1/doctors?api_key=${API_KEY}`
-  // );
-  // const apiDoctors = arrayCleaner(data);
+const getAllDoctorsController = async () => {
+  const response = await Doctor.findAll({
+    attributes: ['id', 'about_me', 'profile_image', 'tuition_code', 'consultation_cost', 'location', 'diseases_treated'],
+    include: [
+      {
+        model: Specialty,
+        attributes: ["specialty"],
+        through: { attributes: [] },
+      },
+      {
+        model: Person,
+        attributes: ['user_name', 'email', 'first_name', 'last_name', 'phone', 'age', 'gender','password'],
+        include: [
+          {
+            model: Rol,
+            attributes: ['name_rol']
+          }
+        ]
+      }
+    ]
+  })
 
-  // if (created) {
-  //   if (created.toLowerCase() === "db") return localDb;
-  //   if (created.toLowerCase() === "api") return apiDoctors;
-  // }
-
-  // const dbMerged = [...apiDoctors, ...localDb];
-
-  // if(temp) {
-  //   const tempFiltered = filterByTemp(temp, dbMerged)
-  //   return tempFiltered
-  // }
-
-  // if (filter) {
-  //   const nameOrdered = orderByName(filter, dbMerged);
-  //   return nameOrdered;
-  // }
-
-  // if (weight) {
-  //   const weightOrdered = orderByWeight(weight, dbMerged);
-  //   return weightOrdered;
-  // }
-
-  // const paginationResult = pagination(limit, page, dbMerged);
-
-  // return paginationResult;
+  // console.log('estoy buscando a mis doctores', response);
+  return response;
 };
 
 module.exports = getAllDoctorsController;

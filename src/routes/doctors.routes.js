@@ -10,7 +10,7 @@ const {
 } = require("../handlers");
 
 doctorsRouter.get("/", getAllDoctorsHandler);
-doctorsRouter.get("/:name", getDoctorByNameHandler);
+doctorsRouter.get("/name", getDoctorByNameHandler);
 doctorsRouter.get("/:doctor_id", getDoctorByIdHandler);
 doctorsRouter.post("/", postDoctorHandler);
 doctorsRouter.put("/:doctor_id", updateDoctorByIdHandler);

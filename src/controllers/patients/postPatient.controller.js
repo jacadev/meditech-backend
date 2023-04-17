@@ -1,22 +1,32 @@
-//const { Patient } = require("../../db");
+const { Patient, Person } = require('../../db');
 
-const postPatientController = async (name, life_span, patient, weight, height, image) => {
-  // const newPatient = await Patient.create({
-  //   name,
-  //   life_span,
-  //   weight,
-  //   height,
-  //   image,
-  // });
+const postPatientController = async (
+  user_name,
+  email,
+  password,
+  first_name,
+  last_name,
+  phone,
+  age,
+  gender,
+  rol
+) => {
+  const newPerson = await Person.create({
+    userName: user_name,
+    email: email,
+    password: password,
+    firstName: first_name,
+    lastName: last_name,
+    phone: phone,
+    age: age,
+    gender: gender,
+    rol_id: rol,
+  });
+  const newPatient = await Patient.create({});
 
-  // for (const patientName of patient) {
-  //   const patient = await Patient.findOne({ where: { name: patientName } });
-  //   if (patient) {
-  //     await newPatient.addPatient(patient);
-  //   }
-  // }
+  await newPatient.setPerson(newPerson);
 
-  // return newPatient;
+  return newPatient;
 };
 
 module.exports = postPatientController;
