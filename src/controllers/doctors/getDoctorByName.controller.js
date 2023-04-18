@@ -1,5 +1,5 @@
 const { Op } = require("sequelize");
-const { Doctor, Specialty, Person, Rol } = require("../../db");
+const { Doctor, Specialty, Person, Rol, Review } = require("../../db");
 
 const getDoctorByNameController = async (doctorName) => {
   const nameFilter = doctorName.toLowerCase();
@@ -20,6 +20,12 @@ const getDoctorByNameController = async (doctorName) => {
             attributes: ['nameRol']
           }
         ]
+      },
+      {
+        model: Review,
+        attributes: ['comment', 'rating'],
+        where: { status: true }, //mostramos solo las reviews activas
+        through: { attributes: [] },
       }
     ],
     where: {

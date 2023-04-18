@@ -1,4 +1,4 @@
-const { Doctor, Specialty, Person, Rol } = require("../../db");
+const { Doctor, Specialty, Person, Rol, Review } = require("../../db");
 
 const getDoctorByIdController = async (doctorId) => {
   const doctor = await Doctor.findOne({
@@ -20,11 +20,17 @@ const getDoctorByIdController = async (doctorId) => {
             attributes: ['nameRol']
           }
         ]
+      },
+      {
+        model: Review,
+        attributes: ['comment', 'rating'],
+        where: { status: true }, //mostramos solo las reviews activas
+        through: { attributes: [] },
       }
     ]
   });
 
-  if(!doctor) throw new Error(`Hubo un problema la obtener el doctor con el id: ${doctorId}`);
+  if (!doctor) throw new Error(`Hubo un problema la obtener el doctor con el id: ${doctorId}`);
 
   return doctor;
 };

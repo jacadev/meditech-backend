@@ -19,10 +19,10 @@ const { Doctor, Patient, Specialty, Doctor_specialty, Review, Person, Rol } = se
 
 Doctor.belongsToMany(Specialty, { through: Doctor_specialty });
 Specialty.belongsToMany(Doctor, { through: Doctor_specialty });
-Doctor.belongsTo(Person, {foreignKey: 'person_id'});
-Patient.belongsTo(Person, {foreignKey: 'person_id'})
+Doctor.belongsTo(Person, { foreignKey: 'person_id' });
+Patient.belongsTo(Person, { foreignKey: 'person_id' })
 
-// define la relacion entre rol y person
+// relación entre rol y person
 Rol.hasMany(Person, {
   foreignKey: {
     name: "rol_id",
@@ -39,7 +39,7 @@ Person.belongsTo(Rol, {
   onDelete: "RESTRICT",
 });
 
-// relacion entre paciente y review
+// relación entre paciente y review
 Patient.hasMany(Review, {
   foreignKey: {
     name: "patient_id",
@@ -56,7 +56,20 @@ Review.belongsTo(Patient, {
   onDelete: "RESTRICT",
 });
 
+// relación entre review y doctor
+Doctor.belongsToMany(Review, {
+  through: "Doctor_Review",
+  foreignKey: "doctor_id",
+  onDelete: "RESTRICT",
+});
 
-console.log('los modelos', sequelize.models);
+Review.belongsToMany(Doctor, {
+  through: "Doctor_Review",
+  foreignKey: "review_id",
+  onDelete: "RESTRICT",
+});
+
+
+// console.log('los modelos', sequelize.models);
 
 module.exports = { ...sequelize.models, sequelize };
