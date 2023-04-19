@@ -1,5 +1,5 @@
-const { Op } = require("sequelize");
-const { Doctor, Specialty, Person, Rol, Review } = require("../../db");
+const {Op, literal} = require('sequelize');
+const { Doctor, Specialty, Person, Rol, Review, Day, Timetable } = require("../../db");
 
 const getDoctorByNameController = async (doctorName) => {
   const nameFilter = doctorName.toLowerCase();
@@ -19,22 +19,38 @@ const getDoctorByNameController = async (doctorName) => {
             model: Rol,
             attributes: ['nameRol']
           }
-        ]
+        ],
+        where: {
+          [Op.or]: [
+            { first_name: { [Op.like]: `%${nameFilter}%` } },
+            { last_name: { [Op.like]: `%${nameFilter}%` } },
+            { [Op.and]: literal(`lower(concat("first_name", ' ', "last_name")) like '%${nameFilter}%'`) }
+          ]
+        }
+      },
+      {
+        model: Day,
+        attributes: ['day'],
+        through: { attributes: [] }
+      },
+      {
+        model: Timetable,
+        attributes: ['startTime', 'endTime'],
+        through: { attributes: [] }
       },
       {
         model: Review,
         attributes: ['comment', 'rating'],
-        where: { status: true }, //mostramos solo las reviews activas
+        where: {
+          [Op.or]: [
+            { status: true }, // mostramos solo las reviews activas
+            { id: { [Op.is]: null } } // no hay relación con Review
+          ]
+        },
+        required: false, // para permitir registros sin relación con Review
         through: { attributes: [] },
       }
     ],
-    where: {
-      [Op.or]: [
-        { firstName: { [Op.like]: `%${nameFilter}%` } },
-        { lastName: { [Op.like]: `%${nameFilter}%` } },
-        { [Op.and]: Sequelize.literal(`lower(concat("firstName", ' ', "lastName")) like '%${nameFilter}%'`) }
-      ]
-    }
   });
 
   return doctorFilter;

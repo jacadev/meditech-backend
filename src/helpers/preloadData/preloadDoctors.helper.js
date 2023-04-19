@@ -21,6 +21,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Diabetes", "Hipertensión", "Insuficencia Venosa"],
     specialties: [1, 2],
+    day_id: [1, 2, 3],
+    timetable_id: [1, 2, 3],
     rol_id: [1],
   },
   {
@@ -49,6 +51,8 @@ const preloadDoctors = [
       "Embarazo de Alto Riesgo",
     ],
     specialties: [3, 4],
+    day_id: [3, 4, 5],
+    timetable_id: [4, 5, 6],
     rol_id: [1],
   },
   {
@@ -101,6 +105,8 @@ const preloadDoctors = [
       "Cáncer de ovarios",
     ],
     specialties: [7, 34],
+    day_id: [1, 3, 5],
+    timetable_id: [1, 3, 5],
     rol_id: [1],
   },
   {
@@ -125,6 +131,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Carillas dentales", "Brackets", "Implantes dentales"],
     specialties: [32, 22],
+    day_id: [5, 6, 7],
+    timetable_id: [5, 6, 7],
     rol_id: [1],
   },
   {
@@ -149,6 +157,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Ansiedad", "Depresión", "Trastornos del sueño"],
     specialties: [3, 65],
+    day_id: [2, 4, 6],
+    timetable_id: [2, 4, 6],
     rol_id: [1],
   },
   {
@@ -177,6 +187,8 @@ const preloadDoctors = [
       "Enfermedades del colon",
     ],
     specialties: [53, 3],
+    day_id: [1, 2, 3],
+    timetable_id: [1, 2, 3],
     rol_id: [1],
   },
   {
@@ -201,6 +213,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Asma", "Bronquitis", "Neumonía"],
     specialties: [34, 22],
+    day_id: [1, 2, 3],
+    timetable_id: [1, 2, 3],
     rol_id: [1],
   },
   {
@@ -225,6 +239,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Hernias", "Apendicitis", "Fracturas"],
     specialties: [53, 23],
+    day_id: [1, 4, 7],
+    timetable_id: [1, 4, 7],
     rol_id: [1],
   },
   {
@@ -249,6 +265,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Acné", "Rosácea", "Eczema"],
     specialties: [45, 3],
+    day_id: [5, 6, 7],
+    timetable_id: [1, 2, 3],
     rol_id: [1],
   },
 ];

@@ -15,7 +15,7 @@ for (key in sequelize.models) {
   delete sequelize.models[key];
 }
 
-const { Doctor, Patient, Specialty, Doctor_specialty, Review, Person, Rol } = sequelize.models;
+const { Doctor, Patient, Specialty, Doctor_specialty, Review, Person, Rol, Day, Timetable } = sequelize.models;
 
 Doctor.belongsToMany(Specialty, { through: Doctor_specialty });
 Specialty.belongsToMany(Doctor, { through: Doctor_specialty });
@@ -60,15 +60,36 @@ Review.belongsTo(Patient, {
 Doctor.belongsToMany(Review, {
   through: "Doctor_Review",
   foreignKey: "doctor_id",
-  onDelete: "RESTRICT",
+  // onDelete: "RESTRICT",
 });
 
 Review.belongsToMany(Doctor, {
   through: "Doctor_Review",
   foreignKey: "review_id",
-  onDelete: "RESTRICT",
+  // onDelete: "RESTRICT",
 });
 
+// relación entre Doctor y Day
+Doctor.belongsToMany(Day, {
+  through: 'Doctor_Day',
+  foreignKey: 'doctor_id'
+});
+
+Day.belongsToMany(Doctor, {
+  through: 'Doctor_Day',
+  foreignKey: 'day_id',
+});
+
+// relación entre Doctor y Timetable
+Doctor.belongsToMany(Timetable, {
+  through: 'Doctor_Timetable',
+  foreignKey: 'doctor_id'
+});
+
+Timetable.belongsToMany(Doctor, {
+  through: 'Doctor_Timetable',
+  foreignKey: 'timetable_id',
+});
 
 // console.log('los modelos', sequelize.models);
 
