@@ -17,7 +17,9 @@ const postDoctorHandler = async (req, res) => {
     consultation_cost, 
     location, 
     diseases_treated,
-    specialties
+    specialties,
+    day_id,
+    timetable_id
   } = req.body;
   
   try {
@@ -37,7 +39,9 @@ const postDoctorHandler = async (req, res) => {
       consultation_cost, 
       location, 
       diseases_treated,
-      specialties
+      specialties,
+      day_id,
+      timetable_id
     );
     res.status(201).json(doctorPosted);
   } catch (error) {

@@ -1,4 +1,5 @@
-const { Doctor, Specialty, Person, Rol, Review } = require("../../db");
+const { Op } = require('sequelize');
+const { Doctor, Specialty, Person, Rol, Review, Day, Timetable } = require("../../db");
 
 const getAllDoctorsController = async () => {
   const response = await Doctor.findAll({
@@ -20,11 +21,27 @@ const getAllDoctorsController = async () => {
         ]
       },
       {
+        model: Day,
+        attributes: ['day'],
+        through: { attributes: [] }
+      },
+      {
+        model: Timetable,
+        attributes: ['startTime', 'endTime'],
+        through: { attributes: [] }
+      },
+      {
         model: Review,
         attributes: ['comment', 'rating'],
-        where: { status: true }, //mostramos solo las reviews activas
+        where: {
+          [Op.or]: [
+            { status: true }, // mostramos solo las reviews activas
+            { id: { [Op.is]: null } } // no hay relación con Review
+          ]
+        },
+        required: false, // para permitir registros sin relación con Review
         through: { attributes: [] },
-      }
+      },
     ]
   })
 
