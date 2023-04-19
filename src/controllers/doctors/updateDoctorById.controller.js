@@ -1,34 +1,29 @@
-require("dotenv").config();
-const { API_KEY } = process.env;
-//const { Doctor } = require("../db");
-const axios = require("axios");
-//const { arrayCleaner, objTemplate } = require("../helpers");
+const { Doctor, Person } = require("../../db");
 
-const updateDoctorByIdController = async (doctorId, source) => {
-  // if (source === "api") {
-  //   const { data } = await axios.put(
-  //     `https://api.thedoctorapi.com/v1/doctors/${doctorId}?api_key=${API_KEY}`
-  //   );
+const updateDoctorByIdController = async (doctor_id, phone, about_me, consultation_cost, location, diseases_treated) => {
 
-  //   if (Object.keys(data).length > 0) {
-  //     const doctorApiImage = await axios.put(
-  //       `https://api.thedoctorapi.com/v1/images/${data.reference_image_id}?api_key=${API_KEY}`
-  //     );
-  //     const apiObjMerged = {
-  //       ...data,
-  //       image: {
-  //         url: doctorApiImage.data.url,
-  //       },
-  //     };
+  const doctor = await Doctor.findByPk(doctor_id);
+    if (!doctor) {
+      return res.status(404).json({ message: "Doctor no encontrado" });
+    }
 
-  //     return arrayCleaner([apiObjMerged])[0];
-  //   }
-  //   throw new Error(`Sorry, there is no doctor with the id: ${doctorId}`);
-  // } else {
-  //   const localDbRaw = await Doctor.findByPk(doctorId, objTemplate);
-  //   const localDb = arrayCleaner([localDbRaw]);
-  //   return localDb[0];
-  // }
+    const person = await Person.findByPk(doctor.person_id);
+    if (!person) {
+      return res.status(404).json({ message: "Persona no encontrada" });
+    }
+
+    await person.update({
+      phone,
+    });
+
+    await doctor.update({
+      aboutMe: about_me,
+      consultationCost: consultation_cost,
+      location,
+      diseasesTreated: diseases_treated
+    });
+    
+    return doctor
 };
 
 module.exports = updateDoctorByIdController;
