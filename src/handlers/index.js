@@ -29,6 +29,14 @@ const postCitaHandler = require("./citas/postCita.handler");
 const getAllReviewsHandler = require("./reviews/getAllReviews.handler");
 const postReviewHandler = require("./reviews/postReview.handler");
 
+// Appointment handlers
+const getAllAppointmentsHandler = require("./appointments/getAllAppointments.handler");
+const postAppointmentHandler = require("./appointments/postAppointment.handler");
+
+// Disponibilty handlers
+const getAllDisponibiltiesHandler = require("./disponibilties/getAllDisponibilties.handler");
+const postDisponibiltyHandler = require("./disponibilties/postDisponibilty.handler");
+
 module.exports = {
   getAllDoctorsHandler,
   getDoctorByNameHandler,
@@ -50,5 +58,8 @@ module.exports = {
   getAllReviewsHandler,
   postReviewHandler,
   postSigninHandler,
-  
+  getAllAppointmentsHandler,
+  postAppointmentHandler,
+  getAllDisponibiltiesHandler,
+  postDisponibiltyHandler
 }

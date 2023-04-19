@@ -27,6 +27,14 @@ const postCitaController = require("./citas/postCita.controller");
 const getAllReviewsController = require("./reviews/getAllReviews.controller");
 const postReviewController = require("./reviews/postReview.controller");
 
+// Appointment Controller
+const getAllAppointmentsController = require("./appointments/getAllAppointments.controller");
+const postAppointmentController = require("./appointments/postAppointment.controller");
+
+// Disponibilty Controller
+const getAllDisponibiltiesController = require("./disponibilties/getAllDisponibilties.controller");
+const postDisponibiltyController = require("./disponibilties/postDisponibilty.controller");
+
 module.exports = {
   getAllDoctorsController,
   getDoctorByNameController,
@@ -46,5 +54,9 @@ module.exports = {
   getAllCitasController,
   postCitaController,
   getAllReviewsController,
-  postReviewController
+  postReviewController,
+  getAllAppointmentsController,
+  postAppointmentController,
+  getAllDisponibiltiesController,
+  postDisponibiltyController
 };

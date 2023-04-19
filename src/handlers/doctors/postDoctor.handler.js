@@ -18,8 +18,6 @@ const postDoctorHandler = async (req, res) => {
     location, 
     diseases_treated,
     specialties,
-    day_id,
-    timetable_id
   } = req.body;
   
   try {
@@ -40,8 +38,6 @@ const postDoctorHandler = async (req, res) => {
       location, 
       diseases_treated,
       specialties,
-      day_id,
-      timetable_id
     );
     res.status(201).json(doctorPosted);
   } catch (error) {

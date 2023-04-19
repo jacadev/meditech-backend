@@ -9,9 +9,13 @@ module.exports = (sequelize) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      consultationCost: {
-        field: "consultation_cost",
-        type: DataTypes.STRING,
+      date: {
+        type: DataTypes.TIME,
+        allowNull: false,
+      },
+      consultationReason: {
+        field: "consultation_reason",
+        type: DataTypes.TEXT,
         defaultValue: "El paciente no suministro información",
         allowNull: false,
       },

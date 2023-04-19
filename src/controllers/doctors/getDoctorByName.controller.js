@@ -1,5 +1,5 @@
 const {Op, literal} = require('sequelize');
-const { Doctor, Specialty, Person, Rol, Review, Day, Timetable } = require("../../db");
+const { Doctor, Specialty, Person, Rol, Review } = require("../../db");
 
 const getDoctorByNameController = async (doctorName) => {
   const nameFilter = doctorName.toLowerCase();
@@ -27,16 +27,6 @@ const getDoctorByNameController = async (doctorName) => {
             { [Op.and]: literal(`lower(concat("first_name", ' ', "last_name")) like '%${nameFilter}%'`) }
           ]
         }
-      },
-      {
-        model: Day,
-        attributes: ['day'],
-        through: { attributes: [] }
-      },
-      {
-        model: Timetable,
-        attributes: ['startTime', 'endTime'],
-        through: { attributes: [] }
       },
       {
         model: Review,

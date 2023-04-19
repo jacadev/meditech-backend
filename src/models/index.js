@@ -9,6 +9,7 @@ const rolModel = require("./rol.model");
 const citaModel = require("./cita.model");
 const dayModel = require("./day.model");
 const timetableModel = require("./timetable.model");
+const disponibiltyModel = require("./disponibilty.model");
 
 module.exports = {
   doctorModel,
@@ -21,5 +22,6 @@ module.exports = {
   rolModel,
   citaModel,
   dayModel,
-  timetableModel
+  timetableModel,
+  disponibiltyModel
 };
