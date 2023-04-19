@@ -1,5 +1,4 @@
-require("dotenv").config();
-const { Doctor, Specialty, Person, Rol } = require("../../db");
+const { Doctor, Specialty, Person, Rol, Review } = require("../../db");
 
 const getAllDoctorsController = async () => {
   const response = await Doctor.findAll({
@@ -12,13 +11,19 @@ const getAllDoctorsController = async () => {
       },
       {
         model: Person,
-        attributes: ['user_name', 'email', 'first_name', 'last_name', 'phone', 'age', 'gender','password'],
+        attributes: ['user_name', 'email', 'first_name', 'last_name', 'phone', 'age', 'gender', 'password'],
         include: [
           {
             model: Rol,
             attributes: ['name_rol']
           }
         ]
+      },
+      {
+        model: Review,
+        attributes: ['comment', 'rating'],
+        where: { status: true }, //mostramos solo las reviews activas
+        through: { attributes: [] },
       }
     ]
   })

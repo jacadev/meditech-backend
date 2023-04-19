@@ -13,7 +13,7 @@ const axios = require("axios");
 app.listen(port, async () => {
   sequelize.sync({ force: true }).then(async () => {
     await Specialty.bulkCreate(preloadSpecialtiesHelper);
-    await Rol.bulkCreate(preloadRolesHelper);    
+    await Rol.bulkCreate(preloadRolesHelper);
     for (let i = 0; i < preloadDoctorsHelper.length; i++) {
       await axios.post(
         "http://localhost:3001/doctors",
@@ -27,7 +27,13 @@ app.listen(port, async () => {
         preloadPersonsHelper[i]
       );
     }
-    await Review.bulkCreate(preloadReviewsHelper); 
+    for (let i = 0; i < preloadReviewsHelper.length; i++) {
+      await axios.post(
+        "http://localhost:3001/reviews",
+        preloadReviewsHelper[i]
+      )
+    }
+    // await Review.bulkCreate(preloadReviewsHelper);
   });
   console.log(`App listening on port ${port}`);
   console.log("Types specialties pre-loaded");
