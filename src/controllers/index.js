@@ -38,10 +38,12 @@ const postDisponibiltyController = require("./disponibilties/postDisponibilty.co
 // Day Controller
 const getAllDaysController = require("./days/getAllDays.controller");
 const postDayController = require("./days/postDay.controller");
+const updateDayByIdController = require("./days/updateDayById.controller");
 
 // Timetable Controller
 const getAllTimetablesController = require("./timetables/getAllTimetables.controller");
 const postTimetableController = require("./timetables/postTimetable.controller");
+const updateTimetableByIdController = require("./timetables/updateDayById.controller");
 
 module.exports = {
   getAllDoctorsController,
@@ -69,6 +71,8 @@ module.exports = {
   postDisponibiltyController,
   getAllDaysController,
   postDayController,
+  updateDayByIdController,
   getAllTimetablesController,
-  postTimetableController
+  postTimetableController,
+  updateTimetableByIdController
 };

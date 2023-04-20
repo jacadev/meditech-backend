@@ -8,6 +8,6 @@ const {
 
 daysRouter.get("/", getAllDaysHandler);
 daysRouter.post("/", postDayHandler);
-// daysRouter.put("/:day_id", updateDayByIdHandler);
+daysRouter.put("/:day_id", updateDayByIdHandler);
 
 module.exports = daysRouter;

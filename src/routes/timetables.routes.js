@@ -8,6 +8,6 @@ const {
 
 timetablesRouter.get("/", getAllTimetablesHandler);
 timetablesRouter.post("/", postTimetableHandler);
-// timetablesRouter.put("/:timetable_id", updateTimetableByIdHandler);
+timetablesRouter.put("/:timetable_id", updateTimetableByIdHandler);
 
 module.exports = timetablesRouter;
