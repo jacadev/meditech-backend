@@ -35,6 +35,14 @@ const postAppointmentController = require("./appointments/postAppointment.contro
 const getAllDisponibiltiesController = require("./disponibilties/getAllDisponibilties.controller");
 const postDisponibiltyController = require("./disponibilties/postDisponibilty.controller");
 
+// Day Controller
+const getAllDaysController = require("./days/getAllDays.controller");
+const postDayController = require("./days/postDay.controller");
+
+// Timetable Controller
+const getAllTimetablesController = require("./timetables/getAllTimetables.controller");
+const postTimetableController = require("./timetables/postTimetable.controller");
+
 module.exports = {
   getAllDoctorsController,
   getDoctorByNameController,
@@ -58,5 +66,9 @@ module.exports = {
   getAllAppointmentsController,
   postAppointmentController,
   getAllDisponibiltiesController,
-  postDisponibiltyController
+  postDisponibiltyController,
+  getAllDaysController,
+  postDayController,
+  getAllTimetablesController,
+  postTimetableController
 };

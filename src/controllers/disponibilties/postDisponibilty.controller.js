@@ -1,4 +1,4 @@
-const { Disponibilty, Day, Timetable, Doctor } = require("../../db.js");
+const { Disponibilty } = require("../../db.js");
 
 const postDisponibiltyController = async (date, day_id, timetable_id, doctor_id) => {
 
