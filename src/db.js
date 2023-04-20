@@ -15,12 +15,26 @@ for (key in sequelize.models) {
   delete sequelize.models[key];
 }
 
-const { Doctor, Patient, Specialty, Doctor_specialty, Review, Person, Rol, Day, Timetable } = sequelize.models;
+const { Doctor, Patient, Specialty, Doctor_specialty, Review, Person, Rol, Day, Timetable, Appointment, Disponibilty } = sequelize.models;
 
-Doctor.belongsToMany(Specialty, { through: Doctor_specialty });
-Specialty.belongsToMany(Doctor, { through: Doctor_specialty });
-Doctor.belongsTo(Person, { foreignKey: 'person_id' });
-Patient.belongsTo(Person, { foreignKey: 'person_id' })
+// relación entre Doctor y Specialty
+Doctor.belongsToMany(Specialty, { 
+  through: Doctor_specialty 
+});
+
+Specialty.belongsToMany(Doctor, { 
+  through: Doctor_specialty 
+});
+
+// relación entre Doctor y Person
+Doctor.belongsTo(Person, { 
+  foreignKey: 'person_id' 
+});
+
+// relación entre Patient y Person
+Patient.belongsTo(Person, { 
+  foreignKey: 'person_id' 
+})
 
 // relación entre rol y person
 Rol.hasMany(Person, {
@@ -28,7 +42,7 @@ Rol.hasMany(Person, {
     name: "rol_id",
     allowNull: false,
   },
-  onDelete: "RESTRICT",
+  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
 });
 
 Person.belongsTo(Rol, {
@@ -36,7 +50,7 @@ Person.belongsTo(Rol, {
     name: "rol_id",
     allowNull: false,
   },
-  onDelete: "RESTRICT",
+  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
 });
 
 // relación entre paciente y review
@@ -45,7 +59,8 @@ Patient.hasMany(Review, {
     name: "patient_id",
     allowNull: false,
   },
-  onDelete: "RESTRICT",
+  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  //onDelete: "CASCADE" // elimina las filas relacionadas en cascada
 });
 
 Review.belongsTo(Patient, {
@@ -53,42 +68,68 @@ Review.belongsTo(Patient, {
     name: "patient_id",
     allowNull: false,
   },
-  onDelete: "RESTRICT",
+  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  //onDelete: "CASCADE" // elimina las filas relacionadas en cascada
 });
 
 // relación entre review y doctor
 Doctor.belongsToMany(Review, {
   through: "Doctor_Review",
   foreignKey: "doctor_id",
-  // onDelete: "RESTRICT",
+  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  //onDelete: "CASCADE" // elimina las filas relacionadas en cascada
 });
 
 Review.belongsToMany(Doctor, {
   through: "Doctor_Review",
   foreignKey: "review_id",
-  // onDelete: "RESTRICT",
+  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  //onDelete: "CASCADE" // elimina las filas relacionadas en cascada
 });
 
-// relación entre Doctor y Day
-Doctor.belongsToMany(Day, {
-  through: 'Doctor_Day',
-  foreignKey: 'doctor_id'
+// relación uno a muchos entre Day y Disponibilty
+Day.hasMany(Disponibilty, {
+  foreignKey: {
+    name: 'day_id',
+    allowNull: false,
+  },
+  onDelete: 'CASCADE', // elimina las filas relacionadas en cascada
 });
 
-Day.belongsToMany(Doctor, {
-  through: 'Doctor_Day',
-  foreignKey: 'day_id',
+Disponibilty.belongsTo(Day, {
+  foreignKey: {
+    name: 'day_id',
+    allowNull: false,
+  },
 });
 
-// relación entre Doctor y Timetable
-Doctor.belongsToMany(Timetable, {
-  through: 'Doctor_Timetable',
-  foreignKey: 'doctor_id'
+// relación uno a muchos entre Timetable y Disponibility
+Timetable.hasMany(Disponibilty, {
+  foreignKey: {
+    name: 'timetable_id',
+    allowNull: false,
+  },
+  onDelete: 'CASCADE', // elimina las filas relacionadas en cascada
 });
 
-Timetable.belongsToMany(Doctor, {
-  through: 'Doctor_Timetable',
-  foreignKey: 'timetable_id',
+Disponibilty.belongsTo(Timetable, {
+  foreignKey: {
+    name: 'timetable_id',
+    allowNull: false,
+  },
+});
+
+// Relación entre Disponibility y Doctor
+Doctor.hasMany(Disponibilty, {
+  foreignKey: 'doctor_id',
+  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  //onDelete: "CASCADE" // elimina las filas relacionadas en cascada
+});
+
+Disponibilty.belongsTo(Doctor, {
+  foreignKey: 'doctor_id',
+  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  //onDelete: "CASCADE" // elimina las filas relacionadas en cascada
 });
 
 // console.log('los modelos', sequelize.models);

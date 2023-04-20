@@ -1,4 +1,4 @@
-const { Cita } = require("../../db.js")
+const { Cita } = require("../../db.js");
 
 const getAllCitasController = async () => {
     return await Cita.findAll();
