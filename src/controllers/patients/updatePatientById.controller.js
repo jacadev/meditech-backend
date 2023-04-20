@@ -1,4 +1,4 @@
-const { Patient , Person} = require("../db");
+const { Patient , Person} = require("../../db");
 
 const updatePatientByIdController = async (patient_id, email, password, first_name, last_name, phone, gender, status) => {
   const patient = await Patient.findByPk(patient_id);
