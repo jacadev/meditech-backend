@@ -1,6 +1,6 @@
 const { Doctor, Person } = require("../../db");
 
-const updateDoctorByIdController = async (doctor_id, phone, about_me, consultation_cost, location, diseases_treated) => {
+const updateDoctorByIdController = async (doctor_id, email, password, first_name, last_name, phone, gender, status, about_me, profile_image, tuition_code, consultation_cost, location, diseases_treated, day_id, specialties) => {
 
   const doctor = await Doctor.findByPk(doctor_id);
     if (!doctor) {
@@ -13,17 +13,28 @@ const updateDoctorByIdController = async (doctor_id, phone, about_me, consultati
     }
 
     await person.update({
+      email,
+      password,
+      firstName: first_name,
+      lastName: last_name,
       phone,
+      gender,
+      status
     });
 
     await doctor.update({
       aboutMe: about_me,
+      profileImage: profile_image,
+      tuitionCode: tuition_code,
       consultationCost: consultation_cost,
       location,
       diseasesTreated: diseases_treated
     });
+    console.log('los modelos de doctor', doctor.__proto__);
+    await doctor.setSpecialties(specialties);
+    await doctor.setDays(day_id);
     
-    return doctor
+    return "put realizado con exito"
 };
 
 module.exports = updateDoctorByIdController;

@@ -1,34 +1,26 @@
-require("dotenv").config();
-const { API_KEY } = process.env;
-//const { Patient } = require("../db");
-const axios = require("axios");
-//const { arrayCleaner, objTemplate } = require("../helpers");
+const { Patient , Person} = require("../db");
 
-const updatePatientByIdController = async (patientId, source) => {
-  // if (source === "api") {
-  //   const { data } = await axios.put(
-  //     `https://api.thepatientapi.com/v1/patients/${patientId}?api_key=${API_KEY}`
-  //   );
+const updatePatientByIdController = async (patient_id, email, password, first_name, last_name, phone, gender, status) => {
+  const patient = await Patient.findByPk(patient_id);
+    if (!patient) {
+      return res.status(404).json({ message: "Paciente no encontrado" });
+    }
 
-  //   if (Object.keys(data).length > 0) {
-  //     const patientApiImage = await axios.put(
-  //       `https://api.thepatientapi.com/v1/images/${data.reference_image_id}?api_key=${API_KEY}`
-  //     );
-  //     const apiObjMerged = {
-  //       ...data,
-  //       image: {
-  //         url: patientApiImage.data.url,
-  //       },
-  //     };
+    const person = await Person.findByPk(patient.person_id);
+    if (!person) {
+      return res.status(404).json({ message: "Persona no encontrada" });
+    }
 
-  //     return arrayCleaner([apiObjMerged])[0];
-  //   }
-  //   throw new Error(`Sorry, there is no patient with the id: ${patientId}`);
-  // } else {
-  //   const localDbRaw = await Patient.findByPk(patientId, objTemplate);
-  //   const localDb = arrayCleaner([localDbRaw]);
-  //   return localDb[0];
-  // }
+    await person.update({
+      email,
+      password,
+      firstName: first_name,
+      lastName: last_name,
+      phone,
+      gender,
+      status
+    });
+
 };
 
 module.exports = updatePatientByIdController;
