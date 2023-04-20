@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const { Doctor, Specialty, Person, Rol, Review} = require("../../db");
+const { Doctor, Specialty, Person, Rol, Review, Disponibilty, Day, Timetable } = require("../../db");
 
 const getAllDoctorsController = async () => {
   const response = await Doctor.findAll({
@@ -19,6 +19,20 @@ const getAllDoctorsController = async () => {
             attributes: ['name_rol']
           }
         ]
+      },
+      {
+        model: Disponibilty,
+        attributes: ["date"],
+        include: [
+          {
+            model: Day,
+            attributes: ["day"],
+          },
+          {
+            model: Timetable,
+            attributes: ["startTime", "endTime"],
+          },
+        ],
       },
       {
         model: Review,
