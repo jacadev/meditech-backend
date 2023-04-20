@@ -9,8 +9,10 @@ const preloadRolesHelper = require("./preloadData/preloadRoles.helper");
 const preloadReviewsHelper = require("./preloadData/preloadReviews.helper");
 const preloadPersonsHelper = require("./preloadData/preloadPersons.helper");
 const preloadDoctorsHelper = require("./preloadData/preloadDoctors.helper");
-const preloadDays = require("./preloadData/preloadDays.helper");
-const preloadTimetable = require("./preloadData/preloadTimetable.helper");
+const preloadDaysHelper = require("./preloadData/preloadDays.helper");
+const preloadTimetablesHelper = require("./preloadData/preloadTimetables.helper");
+const preloadDisponibiltiesHelper = require("./preloadData/preloadDisponibilties.helper");
+const preloadAppointmentsHelper = require("./preloadData/preloadAppointments.helper");
 
 module.exports = {
   arrayCleanerHelper,
@@ -24,6 +26,8 @@ module.exports = {
   preloadDoctorsHelper,
   preloadReviewsHelper,
   preloadPersonsHelper,
-  preloadDays,
-  preloadTimetable
+  preloadDaysHelper,
+  preloadTimetablesHelper,
+  preloadDisponibiltiesHelper,
+  preloadAppointmentsHelper
 };

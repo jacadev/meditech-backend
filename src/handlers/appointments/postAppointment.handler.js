@@ -1,9 +1,9 @@
 const { postAppointmentController } = require("../../controllers");
 
 const postAppointmentHandler = async (req, res) => {
-    const { date, consultationReason, patient_id, doctor_id } = req.body;
+    const { date, consultationReason, patient_id, disponibilty_id } = req.body;
     try {
-        const newAppointment = await postAppointmentController(date, time, consultationReason, patient_id, doctor_id);
+        const newAppointment = await postAppointmentController(date, consultationReason, patient_id, disponibilty_id);
 
         return res.status(201).json(newAppointment);
         // return res.status(201).send("Cita creada con éxito.");

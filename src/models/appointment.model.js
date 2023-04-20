@@ -10,7 +10,7 @@ module.exports = (sequelize) => {
         autoIncrement: true,
       },
       date: {
-        type: DataTypes.TIME,
+        type: DataTypes.DATEONLY,
         allowNull: false,
       },
       consultationReason: {
@@ -25,9 +25,7 @@ module.exports = (sequelize) => {
       },
     },
     {
-      timestamps: true,
-      createdAt: "created_date",
-      updatedAt: "updated_date",
+      timestamps: false,
     }
   );
 };

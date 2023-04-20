@@ -15,25 +15,37 @@ for (key in sequelize.models) {
   delete sequelize.models[key];
 }
 
-const { Doctor, Patient, Specialty, Doctor_specialty, Review, Person, Rol, Day, Timetable, Appointment, Disponibilty } = sequelize.models;
+const {
+  Doctor,
+  Patient,
+  Specialty,
+  Doctor_specialty,
+  Review,
+  Person,
+  Rol,
+  Day,
+  Timetable,
+  Appointment,
+  Disponibilty
+} = sequelize.models;
 
 // relación entre Doctor y Specialty
-Doctor.belongsToMany(Specialty, { 
-  through: Doctor_specialty 
+Doctor.belongsToMany(Specialty, {
+  through: Doctor_specialty
 });
 
-Specialty.belongsToMany(Doctor, { 
-  through: Doctor_specialty 
+Specialty.belongsToMany(Doctor, {
+  through: Doctor_specialty
 });
 
 // relación entre Doctor y Person
-Doctor.belongsTo(Person, { 
-  foreignKey: 'person_id' 
+Doctor.belongsTo(Person, {
+  foreignKey: 'person_id'
 });
 
 // relación entre Patient y Person
-Patient.belongsTo(Person, { 
-  foreignKey: 'person_id' 
+Patient.belongsTo(Person, {
+  foreignKey: 'person_id'
 })
 
 // relación entre rol y person
@@ -119,7 +131,7 @@ Disponibilty.belongsTo(Timetable, {
   },
 });
 
-// Relación entre Disponibility y Doctor
+// relación entre Disponibility y Doctor
 Doctor.hasMany(Disponibilty, {
   foreignKey: 'doctor_id',
   onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
@@ -132,6 +144,36 @@ Disponibilty.belongsTo(Doctor, {
   //onDelete: "CASCADE" // elimina las filas relacionadas en cascada
 });
 
-// console.log('los modelos', sequelize.models);
+// relación entre Appointment y Patient
+Patient.hasMany(Appointment, {
+  foreignKey: {
+    name: "patient_id",
+    allowNull: false,
+  },
+  onDelete: "CASCADE",
+});
+
+Appointment.belongsTo(Patient, {
+  foreignKey: {
+    name: "patient_id",
+    allowNull: false,
+  },
+});
+
+// Relación entre Appointment y Disponibility
+Disponibilty.hasMany(Appointment, {
+  foreignKey: {
+    name: "disponibilty_id",
+    allowNull: false,
+  },
+  onDelete: "CASCADE",
+});
+
+Appointment.belongsTo(Disponibilty, {
+  foreignKey: {
+    name: "disponibilty_id",
+    allowNull: false,
+  },
+});
 
 module.exports = { ...sequelize.models, sequelize };

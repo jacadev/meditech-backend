@@ -1,4 +1,4 @@
-const preloadTimetable = [
+const preloadTimetables = [
     {
         startTime: "08:00:00",
         endTime: "09:00:00"
@@ -37,4 +37,4 @@ const preloadTimetable = [
     }
 ];
 
-module.exports = preloadTimetable;
+module.exports = preloadTimetables;

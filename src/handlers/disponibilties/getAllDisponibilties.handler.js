@@ -6,9 +6,9 @@ const getAllDisponibiltiesHandler = async (req, res) => {
 
         if (!allDisponibilties) throw new Error("Hubo un problema al obtener las disponibilidades")
 
-        res.status(201).json(allDisponibilties)
+        return res.status(201).json(allDisponibilties)
     } catch (error) {
-        res.status(404).json({ error: error.message });
+        return res.status(404).json({ error: error.message });
     }
 };
 

@@ -1,28 +1,36 @@
-const { Appointment, Patient, Doctor } = require("../../db.js");
+const { Appointment, Patient, Disponibilty } = require("../../db.js");
 
-const postAppointmentController = async (date, time, consultationReason, patient_id, doctor_id) => {
-    if(!date || !patient_id || !doctor_id) throw new Error("Faltan datos obligatorios");
+const postAppointmentController = async (date, consultationReason, patient_id, disponibilty_id) => {
+    if (!date || !patient_id || !disponibilty_id) throw new Error("Faltan datos obligatorios");
 
+    // Verificar si la disponibilidad está disponible
+    const disponibilty = await Disponibilty.findByPk(disponibilty_id, {
+        include: {
+            model: Appointment,
+        },
+    });
+
+    if (disponibilty && disponibilty.appointments.length) {
+        throw new Error("La disponibilidad ya ha sido reservada.");
+    }
+
+    // Crear el nuevo registro en la tabla Appointment
     const appointment = await Appointment.create({
         date,
         consultationReason,
         patient_id,
-        doctor_id
+        disponibilty_id,
     });
 
-    // buscamos tanto al paciente como al doctor en la base de datos
+    // Asociar el registro de Appointment con el registro de Patient
     const patient = await Patient.findByPk(patient_id);
-    const doctor = await Doctor.findByPk(doctor_id);
-
-    // si no se encuentra el paciente o el doctor salta el error
-    if (!patient || !doctor) {
-        throw new Error('Paciente o médico no encontrado');
-    }
-
     await appointment.setPatient(patient);
-    await appointment.setDoctor(doctor);
+
+    // Asociar el registro de Appointment con el registro de Disponibility
+    await appointment.setDisponibilty(disponibilty);
 
     return appointment;
+
 };
 
 module.exports = postAppointmentController;

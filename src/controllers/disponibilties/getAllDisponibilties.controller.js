@@ -15,7 +15,6 @@ const getAllDisponibiltiesController = async () => {
             {
                 model: Doctor,
                 attributes: ["profileImage", "tuitionCode"],
-                // through: { attributes: [] },
                 include: [
                     {
                         model: Person,
