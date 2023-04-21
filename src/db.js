@@ -31,21 +31,25 @@ const {
 
 // relación entre Doctor y Specialty
 Doctor.belongsToMany(Specialty, {
-  through: Doctor_specialty
+  through: Doctor_specialty,
+  onDelete: "CASCADE"
 });
 
 Specialty.belongsToMany(Doctor, {
-  through: Doctor_specialty
+  through: Doctor_specialty,
+  onDelete: "CASCADE"
 });
 
 // relación entre Doctor y Person
 Doctor.belongsTo(Person, {
-  foreignKey: 'person_id'
+  foreignKey: 'person_id',
+  onDelete: "CASCADE"
 });
 
 // relación entre Patient y Person
 Patient.belongsTo(Person, {
-  foreignKey: 'person_id'
+  foreignKey: 'person_id',
+  onDelete: "CASCADE"
 })
 
 // relación entre rol y person
@@ -54,7 +58,8 @@ Rol.hasMany(Person, {
     name: "rol_id",
     allowNull: false,
   },
-  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  // onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  onDelete: "CASCADE"
 });
 
 Person.belongsTo(Rol, {
@@ -62,7 +67,8 @@ Person.belongsTo(Rol, {
     name: "rol_id",
     allowNull: false,
   },
-  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  // onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  onDelete: "CASCADE"
 });
 
 // relación entre paciente y review
@@ -71,8 +77,8 @@ Patient.hasMany(Review, {
     name: "patient_id",
     allowNull: false,
   },
-  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
-  //onDelete: "CASCADE" // elimina las filas relacionadas en cascada
+  // onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  onDelete: "CASCADE" // elimina las filas relacionadas en cascada
 });
 
 Review.belongsTo(Patient, {
@@ -80,23 +86,23 @@ Review.belongsTo(Patient, {
     name: "patient_id",
     allowNull: false,
   },
-  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
-  //onDelete: "CASCADE" // elimina las filas relacionadas en cascada
+  // onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  onDelete: "CASCADE" // elimina las filas relacionadas en cascada
 });
 
 // relación entre review y doctor
 Doctor.belongsToMany(Review, {
   through: "Doctor_Review",
   foreignKey: "doctor_id",
-  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
-  //onDelete: "CASCADE" // elimina las filas relacionadas en cascada
+  // onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  onDelete: "CASCADE" // elimina las filas relacionadas en cascada
 });
 
 Review.belongsToMany(Doctor, {
   through: "Doctor_Review",
   foreignKey: "review_id",
-  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
-  //onDelete: "CASCADE" // elimina las filas relacionadas en cascada
+  // onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  onDelete: "CASCADE" // elimina las filas relacionadas en cascada
 });
 
 // relación uno a muchos entre Day y Disponibilty
@@ -113,6 +119,7 @@ Disponibilty.belongsTo(Day, {
     name: 'day_id',
     allowNull: false,
   },
+  onDelete: "CASCADE"
 });
 
 // relación uno a muchos entre Timetable y Disponibility
@@ -129,19 +136,20 @@ Disponibilty.belongsTo(Timetable, {
     name: 'timetable_id',
     allowNull: false,
   },
+  onDelete: "CASCADE"
 });
 
 // relación entre Disponibility y Doctor
 Doctor.hasMany(Disponibilty, {
   foreignKey: 'doctor_id',
-  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
-  //onDelete: "CASCADE" // elimina las filas relacionadas en cascada
+  // onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  onDelete: "CASCADE" // elimina las filas relacionadas en cascada
 });
 
 Disponibilty.belongsTo(Doctor, {
   foreignKey: 'doctor_id',
-  onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
-  //onDelete: "CASCADE" // elimina las filas relacionadas en cascada
+  // onDelete: "RESTRICT", // no permite la eliminación de la fila principal si tiene filas relacionadas
+  onDelete: "CASCADE" // elimina las filas relacionadas en cascada
 });
 
 // relación entre Appointment y Patient
@@ -158,6 +166,7 @@ Appointment.belongsTo(Patient, {
     name: "patient_id",
     allowNull: false,
   },
+  onDelete: "CASCADE",
 });
 
 // Relación entre Appointment y Disponibility
@@ -174,6 +183,7 @@ Appointment.belongsTo(Disponibilty, {
     name: "disponibilty_id",
     allowNull: false,
   },
+  onDelete: "CASCADE",
 });
 
 module.exports = { ...sequelize.models, sequelize };
