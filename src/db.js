@@ -26,7 +26,8 @@ const {
   Day,
   Timetable,
   Appointment,
-  Disponibilty
+  Disponibilty,
+  Pay
 } = sequelize.models;
 
 // relación entre Doctor y Specialty
@@ -185,5 +186,17 @@ Appointment.belongsTo(Disponibilty, {
   },
   onDelete: "CASCADE",
 });
+
+
+
+
+Appointment.belongsTo(Pay, {
+  foreignKey: "pay_id",
+  // onDelete: "CASCADE"
+});
+
+Pay.belongsTo(Appointment, {
+  foreignKey: 'appointment_id'
+})
 
 module.exports = { ...sequelize.models, sequelize };

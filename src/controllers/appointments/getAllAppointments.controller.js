@@ -1,4 +1,4 @@
-const { Appointment, Patient, Disponibilty, Doctor, Day, Timetable, Person, Specialty } = require("../../db.js");
+const { Pay, Appointment, Patient, Disponibilty, Doctor, Day, Timetable, Person, Specialty } = require("../../db.js");
 
 const getAllAppointmentsController = async () => {
     const appointments = await Appointment.findAll({
@@ -42,6 +42,9 @@ const getAllAppointmentsController = async () => {
                         ],
                     }
                 ],
+            },
+            {
+                model: Pay
             }
         ]
     });

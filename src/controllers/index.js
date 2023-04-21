@@ -41,6 +41,10 @@ const getAllTimetablesController = require("./timetables/getAllTimetables.contro
 const postTimetableController = require("./timetables/postTimetable.controller");
 const updateTimetableByIdController = require("./timetables/updateDayById.controller");
 
+//Pay controller
+const postPayController = require('./pay/postPay.controller');
+const getAllPayController = require('./pay/getPay.controller');
+
 module.exports = {
   getAllDoctorsController,
   getDoctorByNameController,
@@ -68,5 +72,7 @@ module.exports = {
   updateDayByIdController,
   getAllTimetablesController,
   postTimetableController,
-  updateTimetableByIdController
+  updateTimetableByIdController,
+  postPayController,
+  getAllPayController
 };

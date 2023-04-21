@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 
+
 module.exports = (sequelize) => {
   sequelize.define(
     "pay",
@@ -42,8 +43,9 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       status: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM('PENDING', 'COMPLETED', 'REJECT'),
         allowNull: false,
+        defaultValue: 'REJECT'
       }
     },
     {
