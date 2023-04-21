@@ -21,10 +21,6 @@ const getAllSpecialtiesHandler = require('./specialties/getAllSpecialties.handle
 const postSpecialtieHandler = require('./specialties/postSpecialtie.handler');
 const updateSpecialtieByIdHandler = require('./specialties/updateSpecialtieById.handler');
 
-// Citas handlers
-const getAllCitasHandler = require("./citas/getAllCitas.handler");
-const postCitaHandler = require("./citas/postCita.handler");
-
 // Review handlers
 const getAllReviewsHandler = require("./reviews/getAllReviews.handler");
 const postReviewHandler = require("./reviews/postReview.handler");
@@ -63,8 +59,6 @@ module.exports = {
   getAllSpecialtiesHandler,
   postSpecialtieHandler,
   updateSpecialtieByIdHandler,
-  getAllCitasHandler,
-  postCitaHandler,
   getAllReviewsHandler,
   postReviewHandler,
   postSigninHandler,

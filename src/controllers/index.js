@@ -19,10 +19,6 @@ const getAllSpecialtiesController = require("./specialties/getAllSpecialties.con
 const postSpecialtieController = require("./specialties/postSpecialtie.controller");
 const updateSpecialtieByIdController = require("./specialties/updateSpecialtieById.controller");
 
-// Cita Controller
-const getAllCitasController = require("./citas/getAllCitas.controller");
-const postCitaController = require("./citas/postCita.controller");
-
 // Review Controller
 const getAllReviewsController = require("./reviews/getAllReviews.controller");
 const postReviewController = require("./reviews/postReview.controller");
@@ -61,8 +57,6 @@ module.exports = {
   getAllSpecialtiesController,
   postSpecialtieController,
   updateSpecialtieByIdController,
-  getAllCitasController,
-  postCitaController,
   getAllReviewsController,
   postReviewController,
   getAllAppointmentsController,
