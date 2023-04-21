@@ -2,7 +2,7 @@ const { Review, Patient, Doctor, Person, Specialty, Rol } = require("../../db");
 
 const getAllReviewsController = async () => {
     const reviews = await Review.findAll({
-        attributes:["id", "comment", "rating", "status", "comment_date"],
+        attributes:["id", "comment", "rating", "status", "comment_date", "status"],
         include: [
             {
                 model: Doctor,
@@ -11,7 +11,7 @@ const getAllReviewsController = async () => {
                 include: [
                     {
                         model: Person,
-                        attributes: ['first_name', 'last_name'],
+                        attributes: ['first_name', 'last_name', 'status'],
                         include: [
                             {
                                 model: Rol,
@@ -32,7 +32,7 @@ const getAllReviewsController = async () => {
                 include: [
                     {
                         model: Person,
-                        attributes: ['first_name', 'last_name'],
+                        attributes: ['first_name', 'last_name', 'status'],
                         include: [
                             {
                                 model: Rol,

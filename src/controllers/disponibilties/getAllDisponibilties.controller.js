@@ -2,15 +2,15 @@ const { Disponibilty, Day, Timetable, Doctor, Person, Specialty } = require("../
 
 const getAllDisponibiltiesController = async () => {
     const disponibilties = await Disponibilty.findAll({
-        attributes: ["id", "date"],
+        attributes: ["id", "date", "status"],
         include: [
             {
                 model: Day,
-                attributes: ["day"],
+                attributes: ["day", "status"],
             },
             {
                 model: Timetable,
-                attributes: ["startTime", "endTime"],
+                attributes: ["startTime", "endTime", "status"],
             },
             {
                 model: Doctor,
@@ -18,7 +18,7 @@ const getAllDisponibiltiesController = async () => {
                 include: [
                     {
                         model: Person,
-                        attributes: ['first_name', 'last_name'],
+                        attributes: ['first_name', 'last_name', 'status'],
                     },
                     {
                         model: Specialty,

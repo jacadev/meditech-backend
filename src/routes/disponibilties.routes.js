@@ -3,10 +3,12 @@ const disponibiltiesRouter = Router();
 
 const {
     getAllDisponibiltiesHandler,
-    postDisponibiltyHandler
+    postDisponibiltyHandler,
+    updatedDisponibiltyByIdHandler
 } = require("../handlers");
 
 disponibiltiesRouter.get("/", getAllDisponibiltiesHandler);
 disponibiltiesRouter.post("/", postDisponibiltyHandler);
+disponibiltiesRouter.put("/:disponibilty_id", updatedDisponibiltyByIdHandler);
 
 module.exports = disponibiltiesRouter;

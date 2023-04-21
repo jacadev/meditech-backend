@@ -2,7 +2,7 @@ const { Pay, Appointment, Patient, Disponibilty, Doctor, Day, Timetable, Person,
 
 const getAllAppointmentsController = async () => {
     const appointments = await Appointment.findAll({
-        attributes: ["id", "date", "consultationReason"],
+        attributes: ["id", "date", "consultationReason", "status"],
         include: [
             {
                 model: Patient,
@@ -16,15 +16,15 @@ const getAllAppointmentsController = async () => {
             },
             {
                 model: Disponibilty,
-                attributes: ["date"],
+                attributes: ["date", "status"],
                 include: [
                     {
                         model: Day,
-                        attributes: ["day"]
+                        attributes: ["day", "status"]
                     },
                     {
                         model: Timetable,
-                        attributes: ["startTime", "endTime"]
+                        attributes: ["startTime", "endTime", "status"]
                     },
                     {
                         model: Doctor,
@@ -32,7 +32,7 @@ const getAllAppointmentsController = async () => {
                         include: [
                             {
                                 model: Person,
-                                attributes: ['first_name', 'last_name'],
+                                attributes: ['first_name', 'last_name', 'status'],
                             },
                             {
                                 model: Specialty,

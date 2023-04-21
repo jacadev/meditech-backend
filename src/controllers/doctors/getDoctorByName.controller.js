@@ -30,15 +30,15 @@ const getDoctorByNameController = async (doctorName) => {
       },
       {
         model: Disponibilty,
-        attributes: ["date"],
+        attributes: ["date", "status"],
         include: [
           {
             model: Day,
-            attributes: ["day"],
+            attributes: ["day", "status"],
           },
           {
             model: Timetable,
-            attributes: ["startTime", "endTime"],
+            attributes: ["startTime", "endTime", "status"],
           },
         ],
       },

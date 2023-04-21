@@ -32,6 +32,7 @@ const postAppointmentHandler = require("./appointments/postAppointment.handler")
 // Disponibilty handlers
 const getAllDisponibiltiesHandler = require("./disponibilties/getAllDisponibilties.handler");
 const postDisponibiltyHandler = require("./disponibilties/postDisponibilty.handler");
+const updatedDisponibiltyByIdHandler = require("./disponibilties/updatedDisponibiltyById.handler");
 
 // Day handlers
 const getAllDaysHandler = require("./days/getAllDays.handler");
@@ -70,6 +71,7 @@ module.exports = {
   postAppointmentHandler,
   getAllDisponibiltiesHandler,
   postDisponibiltyHandler,
+  updatedDisponibiltyByIdHandler,
   getAllDaysHandler,
   postDayHandler,
   updateDayByIdHandler,
