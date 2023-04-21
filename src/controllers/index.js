@@ -19,10 +19,6 @@ const getAllSpecialtiesController = require("./specialties/getAllSpecialties.con
 const postSpecialtieController = require("./specialties/postSpecialtie.controller");
 const updateSpecialtieByIdController = require("./specialties/updateSpecialtieById.controller");
 
-// Cita Controller
-const getAllCitasController = require("./citas/getAllCitas.controller");
-const postCitaController = require("./citas/postCita.controller");
-
 // Review Controller
 const getAllReviewsController = require("./reviews/getAllReviews.controller");
 const postReviewController = require("./reviews/postReview.controller");
@@ -34,6 +30,16 @@ const postAppointmentController = require("./appointments/postAppointment.contro
 // Disponibilty Controller
 const getAllDisponibiltiesController = require("./disponibilties/getAllDisponibilties.controller");
 const postDisponibiltyController = require("./disponibilties/postDisponibilty.controller");
+
+// Day Controller
+const getAllDaysController = require("./days/getAllDays.controller");
+const postDayController = require("./days/postDay.controller");
+const updateDayByIdController = require("./days/updateDayById.controller");
+
+// Timetable Controller
+const getAllTimetablesController = require("./timetables/getAllTimetables.controller");
+const postTimetableController = require("./timetables/postTimetable.controller");
+const updateTimetableByIdController = require("./timetables/updateDayById.controller");
 
 module.exports = {
   getAllDoctorsController,
@@ -51,12 +57,16 @@ module.exports = {
   getAllSpecialtiesController,
   postSpecialtieController,
   updateSpecialtieByIdController,
-  getAllCitasController,
-  postCitaController,
   getAllReviewsController,
   postReviewController,
   getAllAppointmentsController,
   postAppointmentController,
   getAllDisponibiltiesController,
-  postDisponibiltyController
+  postDisponibiltyController,
+  getAllDaysController,
+  postDayController,
+  updateDayByIdController,
+  getAllTimetablesController,
+  postTimetableController,
+  updateTimetableByIdController
 };

@@ -21,10 +21,6 @@ const getAllSpecialtiesHandler = require('./specialties/getAllSpecialties.handle
 const postSpecialtieHandler = require('./specialties/postSpecialtie.handler');
 const updateSpecialtieByIdHandler = require('./specialties/updateSpecialtieById.handler');
 
-// Citas handlers
-const getAllCitasHandler = require("./citas/getAllCitas.handler");
-const postCitaHandler = require("./citas/postCita.handler");
-
 // Review handlers
 const getAllReviewsHandler = require("./reviews/getAllReviews.handler");
 const postReviewHandler = require("./reviews/postReview.handler");
@@ -36,6 +32,16 @@ const postAppointmentHandler = require("./appointments/postAppointment.handler")
 // Disponibilty handlers
 const getAllDisponibiltiesHandler = require("./disponibilties/getAllDisponibilties.handler");
 const postDisponibiltyHandler = require("./disponibilties/postDisponibilty.handler");
+
+// Day handlers
+const getAllDaysHandler = require("./days/getAllDays.handler");
+const postDayHandler = require("./days/postDay.handler");
+const updateDayByIdHandler = require("./days/updateDayById.handler");
+
+// Timetable handlers
+const getAllTimetablesHandler = require("./timetables/getAllTimetables.handler");
+const postTimetableHandler = require("./timetables/postTimetable.handler");
+const updateTimetableByIdHandler = require("./timetables/updateTimetableById.handler");
 
 module.exports = {
   getAllDoctorsHandler,
@@ -53,13 +59,17 @@ module.exports = {
   getAllSpecialtiesHandler,
   postSpecialtieHandler,
   updateSpecialtieByIdHandler,
-  getAllCitasHandler,
-  postCitaHandler,
   getAllReviewsHandler,
   postReviewHandler,
   postSigninHandler,
   getAllAppointmentsHandler,
   postAppointmentHandler,
   getAllDisponibiltiesHandler,
-  postDisponibiltyHandler
+  postDisponibiltyHandler,
+  getAllDaysHandler,
+  postDayHandler,
+  updateDayByIdHandler,
+  getAllTimetablesHandler,
+  postTimetableHandler,
+  updateTimetableByIdHandler
 }

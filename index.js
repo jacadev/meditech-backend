@@ -50,12 +50,12 @@ app.listen(port, async () => {
       );
     }
 
-    for (let i = 0; i < preloadAppointmentsHelper.length; i++) {
-      await axios.post(
-        "http://localhost:3001/appointments",
-        preloadAppointmentsHelper[i]
-      );
-    }
+    // for (let i = 0; i < preloadAppointmentsHelper.length; i++) {
+    //   await axios.post(
+    //     "http://localhost:3001/appointments",
+    //     preloadAppointmentsHelper[i]
+    //   );
+    // }
   });
   console.log(`App listening on port ${port}`);
   console.log("Ready pre-loades");

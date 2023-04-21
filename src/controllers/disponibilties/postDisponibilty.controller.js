@@ -1,31 +1,35 @@
-const { Disponibilty, Day, Timetable, Doctor } = require("../../db.js");
+const { Disponibilty, Timetable } = require("../../db.js");
 
-const postDisponibiltyController = async (date, day_id, timetable_id, doctor_id) => {
+const postDisponibiltyController = async (date, day_id, timetable_ids, doctor_id) => {
 
-    if (!date || !day_id || !timetable_id || !doctor_id) throw new Error("Faltan datos obligatorios");
+    if (!date || !day_id || !timetable_ids || !doctor_id) throw new Error("Faltan datos obligatorios");
 
     const existingDisponibilty = await Disponibilty.findOne({
-        where: {
-            day_id,
-            timetable_id,
-        },
+        where: { day_id },
+        include: [{ model: Timetable, where: { id: timetable_ids } }]
     });
 
     if (existingDisponibilty) {
-        throw new Error("Este horario ya está disponible para este día");
+        throw new Error("Al menos uno de estos horarios ya está disponible para este día");
     }
 
-    const disponibilty = await Disponibilty.create({
-        date,
-        day_id,
-        timetable_id,
-        doctor_id,
-    });
+    // crear una instancia de Disponibilty para cada horario
+    const disponibilities = await Promise.all(timetable_ids.map(async (timetable_id) => {
+        const disponibility = await Disponibilty.create({
+            date,
+            doctor_id,
+            day_id,
+            timetable_id
+        });
+        return disponibility;
+    }));
 
-    await disponibilty.setDay(day_id);
-    await disponibilty.setTimetable(timetable_id);
+    // establecer la relación con el día correspondiente
+    await Promise.all(disponibilities.map(async (disponibility) => {
+        await disponibility.setDay(day_id);
+    }));
 
-    return disponibilty;
+    return disponibilities;
 };
 
 module.exports = postDisponibiltyController;
