@@ -1,5 +1,4 @@
-const { Disponibilty, Timetable } = require("../../db.js");
-const { Op } = require("sequelize")
+const { Disponibilty } = require("../../db.js");
 
 const postDisponibiltyController = async (date, day_id, timetable_ids, doctor_id) => {
 
