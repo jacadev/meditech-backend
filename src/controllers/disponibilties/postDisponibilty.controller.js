@@ -1,16 +1,21 @@
 const { Disponibilty, Timetable } = require("../../db.js");
+const { Op } = require("sequelize")
 
 const postDisponibiltyController = async (date, day_id, timetable_ids, doctor_id) => {
 
     if (!date || !day_id || !timetable_ids || !doctor_id) throw new Error("Faltan datos obligatorios");
 
+    // Validar que no exista ya una disponibilidad para el mismo doctor, día y horario
     const existingDisponibilty = await Disponibilty.findOne({
-        where: { day_id },
-        include: [{ model: Timetable, where: { id: timetable_ids } }]
+        where: { 
+            day_id, 
+            doctor_id,
+            timetable_id: timetable_ids
+        }
     });
 
     if (existingDisponibilty) {
-        throw new Error("Al menos uno de estos horarios ya está disponible para este día");
+        throw new Error("Este horario ya está disponible para este día con este médico");
     }
 
     // crear una instancia de Disponibilty para cada horario

@@ -187,9 +187,6 @@ Appointment.belongsTo(Disponibilty, {
   onDelete: "CASCADE",
 });
 
-
-
-
 Appointment.belongsTo(Pay, {
   foreignKey: "pay_id",
   // onDelete: "CASCADE"
