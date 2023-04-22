@@ -1,10 +1,10 @@
 const { Op } = require('sequelize');
 const { Doctor, Specialty, Person, Rol, Review, Disponibilty, Day, Timetable } = require("../../db");
 
-const getDoctorByIdController = async (doctorId) => {
+const getDoctorByIdController = async (doctor_id) => {
   const doctor = await Doctor.findOne({
     where: {
-      id: doctorId
+      id: doctor_id
     },
     include: [
       {
@@ -51,7 +51,7 @@ const getDoctorByIdController = async (doctorId) => {
     ]
   });
 
-  if (!doctor) throw new Error(`Hubo un problema la obtener el doctor con el id: ${doctorId}`);
+  if (!doctor) throw new Error(`Hubo un problema la obtener el doctor con el id: ${doctor_id}`);
 
   return doctor;
 };

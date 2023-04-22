@@ -39,9 +39,9 @@ const postDoctorHandler = async (req, res) => {
       diseases_treated,
       specialties,
     );
-    res.status(201).json(doctorPosted);
+    return res.status(201).json(doctorPosted);
   } catch (error) {
-    res.status(404).send({ error: error.message });
+    return res.status(404).send({ error: error.message });
   }
 };
 

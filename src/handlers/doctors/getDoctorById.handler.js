@@ -4,9 +4,9 @@ const getDoctorByIdHandler = async (req, res) => {
   const { doctor_id } = req.params;
   try {
     const doctorById = await getDoctorByIdController(doctor_id);
-    res.status(200).json(doctorById);
+    return res.status(200).json(doctorById);
   } catch (error) {
-    res.status(404).json({ error: error.message });
+    return res.status(404).json({ error: error.message });
   }
 };
 

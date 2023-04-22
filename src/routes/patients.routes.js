@@ -11,7 +11,7 @@ const {
 } = require('../handlers');
 
 patientsRouter.get('/', getAllPatientsHandler);
-patientsRouter.get('/:name', getPatientByNameHandler);
+patientsRouter.get('/name', getPatientByNameHandler);
 patientsRouter.get('/:patient_id', getPatientByIdHandler);
 patientsRouter.post('/', postSignupPatientHandler);
 patientsRouter.put('/:patient_id', updatePatientByIdHandler);

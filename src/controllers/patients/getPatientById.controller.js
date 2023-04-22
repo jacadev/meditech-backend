@@ -1,34 +1,57 @@
-require("dotenv").config();
-const { API_KEY } = process.env;
-//const { Patient } = require("../db");
-const axios = require("axios");
-//const { arrayCleaner, objTemplate } = require("../helpers");
+const { Patient, Person, Rol, Review, Appointment, Pay } = require("../../db");
+const { Op } = require('sequelize');
 
-const getPatientByIdController = async (patientId, source) => {
-  // if (source === "api") {
-  //   const { data } = await axios.get(
-  //     `https://api.thepatientapi.com/v1/patients/${patientId}?api_key=${API_KEY}`
-  //   );
+const getPatientByIdController = async (patient_id) => {
+  const patient = await Patient.findOne({
+    where: {
+      id: patient_id
+    },
+    attributes: ["person_id"],
+    include: [
+      {
+        model: Person,
+        attributes: [
+          'userName',
+          'email',
+          'firstName',
+          'lastName',
+          'phone',
+          'age',
+          'gender',
+          'rol_id',
+        ],
+        include: [
+          {
+            model: Rol,
+            attributes: ['nameRol'],
+          },
+        ],
+      },
+      {
+        model: Review,
+        attributes: ['comment', 'rating'],
+        where: {
+          [Op.or]: [
+            { status: true }, // mostramos solo las reviews activas
+            { id: { [Op.is]: null } } // no hay relación con Review
+          ]
+        },
+        required: false, // para permitir registros sin relación con Review
+      },
+      {
+        model: Appointment,
+        include: [
+          {
+            model: Pay
+          }
+        ]
+      }
+    ],
+  });
 
-  //   if (Object.keys(data).length > 0) {
-  //     const patientApiImage = await axios.get(
-  //       `https://api.thepatientapi.com/v1/images/${data.reference_image_id}?api_key=${API_KEY}`
-  //     );
-  //     const apiObjMerged = {
-  //       ...data,
-  //       image: {
-  //         url: patientApiImage.data.url,
-  //       },
-  //     };
+  if (!patient) throw new Error(`Hubo un problema la obtener el paciente con el id: ${patient_id}`);
 
-  //     return arrayCleaner([apiObjMerged])[0];
-  //   }
-  //   throw new Error(`Sorry, there is no patient with the id: ${patientId}`);
-  // } else {
-  //   const localDbRaw = await Patient.findByPk(patientId, objTemplate);
-  //   const localDb = arrayCleaner([localDbRaw]);
-  //   return localDb[0];
-  // }
+  return patient;
 };
 
 module.exports = getPatientByIdController;

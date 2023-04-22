@@ -1,5 +1,4 @@
-require('dotenv').config();
-const { Patient, Rol, Person, Review, Appointment } = require('../../db');
+const { Patient, Rol, Person, Review, Appointment, Pay } = require('../../db');
 
 const getAllPatientsController = async () => {
   const response = await Patient.findAll({
@@ -28,7 +27,12 @@ const getAllPatientsController = async () => {
         model: Review               
       },    
       {
-        model: Appointment
+        model: Appointment,
+        include: [
+          {
+            model: Pay
+          }
+        ]
       }   
     ],
   });
