@@ -6,10 +6,10 @@ const updatedDisponibiltyByIdHandler = async (req, res) => {
 
     try {
         const result = await updatedDisponibiltyByIdController(disponibilty_id, date, day_id, timetable_id, status);
-        res.status(201).json(result);
+        return res.status(201).json(result);
         // return res.status(201).send('Disponibilidad actualizada con éxito');
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        return res.status(400).json({ message: error.message });
     }
 };
 

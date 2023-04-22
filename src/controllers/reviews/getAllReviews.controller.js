@@ -6,7 +6,7 @@ const getAllReviewsController = async () => {
         include: [
             {
                 model: Doctor,
-                attributes: ["profileImage", "tuitionCode"],
+                attributes: ["id", "profileImage", "tuitionCode"],
                 through: { attributes: [] },
                 include: [
                     {
@@ -28,7 +28,7 @@ const getAllReviewsController = async () => {
             },
             {
                 model: Patient,
-                attributes: ["person_id"],
+                attributes: ["id"],
                 include: [
                     {
                         model: Person,

@@ -24,6 +24,7 @@ const updateSpecialtieByIdHandler = require('./specialties/updateSpecialtieById.
 // Review handlers
 const getAllReviewsHandler = require("./reviews/getAllReviews.handler");
 const postReviewHandler = require("./reviews/postReview.handler");
+const updateReviewByIdHandler = require("./reviews/updateReviewById.handler");
 
 // Appointment handlers
 const getAllAppointmentsHandler = require("./appointments/getAllAppointments.handler");
@@ -66,6 +67,7 @@ module.exports = {
   updateSpecialtieByIdHandler,
   getAllReviewsHandler,
   postReviewHandler,
+  updateReviewByIdHandler,
   postSigninHandler,
   getAllAppointmentsHandler,
   postAppointmentHandler,

@@ -6,10 +6,10 @@ const updateSpecialtieByIdHandler = async (req, res) => {
 
     try {
         const result = await updateSpecialtieByIdController(specialty_id, specialty, status);
-        res.status(201).json(result);
+        return res.status(201).json(result);
         // return res.status(201).send('Especialidad actualizada con éxito');
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        return res.status(400).json({ message: error.message });
     }
 };
 

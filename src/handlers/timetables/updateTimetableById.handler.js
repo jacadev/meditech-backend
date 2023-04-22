@@ -6,10 +6,10 @@ const updateTimetableByIdHandler = async (req, res) => {
 
     try {
         const result = await updateTimetableByIdController(timetable_id, startTime, endTime, status);
-        res.status(201).json(result);
+        return res.status(201).json(result);
         // return res.status(201).send('Horario actualizado con éxito');
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        return res.status(400).json({ message: error.message });
     }
 };
 
