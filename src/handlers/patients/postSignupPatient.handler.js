@@ -1,5 +1,4 @@
 const { postPatientController } = require('../../controllers');
-const bcrypt = require('bcrypt');
 const { generateToken } = require('../../helpers/utils.herlper');
 
 const postSigupPatientHandler = async (req, res) => {
@@ -29,8 +28,9 @@ const postSigupPatientHandler = async (req, res) => {
     );
     res.send({
       id: patientPosted.id,
-      user_name: patientPosted.user_name,
+      user_name: patientPosted.userName,
       email: patientPosted.email,
+      rol: patientPosted.rol_id,
       token: generateToken(patientPosted),
     });
   } catch (error) {
