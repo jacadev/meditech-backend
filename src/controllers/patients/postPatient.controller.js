@@ -12,18 +12,7 @@ const postPatientController = async (
   rol
 ) => {
 
-//   if (!user_name || !email || !password || !first_name || !last_name || !phone || !age || gender) throw new Error("Faltan datos obligatorios.")
-  
-//   // Validar la propiedad phone
-//   if (phone.length > 10) {
-//     throw new Error("El número de teléfono proporcionado no es válido. Debe tener un máximo de 10 dígitos.");
-// }
 
-// // Validar la propiedad email
-// const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-// if (!regexEmail.test(email)) {
-//     throw new Error("El correo electrónico proporcionado no es válido.");
-// }
   const newPerson = await Person.create({
     userName: user_name,
     email: email,
@@ -38,8 +27,9 @@ const postPatientController = async (
   const newPatient = await Patient.create({});
 
   await newPatient.setPerson(newPerson);
+  await newPerson.setRol(rol);
 
-  return newPatient;
+  return newPerson;
 };
 
 module.exports = postPatientController;
