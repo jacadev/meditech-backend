@@ -15,7 +15,6 @@ const updatePatientByIdHandler = require('./patients/updatePatientById.handler')
 const deletePatientByIdHandler = require('./patients/deletePatientById.handler');
 const postSigninHandler = require('./patients/postSignin.handler');
 
-
 // Specialty handlers
 const getAllSpecialtiesHandler = require('./specialties/getAllSpecialties.handler');
 const postSpecialtieHandler = require('./specialties/postSpecialtie.handler');
@@ -31,9 +30,11 @@ const updateReviewByIdHandler = require("./reviews/updateReviewById.handler");
 const getAllAppointmentsHandler = require("./appointments/getAllAppointments.handler");
 const getAppointmentByIdHandler = require("./appointments/getAppointmentById.handler");
 const postAppointmentHandler = require("./appointments/postAppointment.handler");
+const updateAppointmentByIdHandler = require("./appointments/updateAppointmentById.handler");
 
 // Disponibilty handlers
 const getAllDisponibiltiesHandler = require("./disponibilties/getAllDisponibilties.handler");
+const getDisponibiltyByIdHandler = require("./disponibilties/getDisponibiltyById.handler");
 const postDisponibiltyHandler = require("./disponibilties/postDisponibilty.handler");
 const updatedDisponibiltyByIdHandler = require("./disponibilties/updatedDisponibiltyById.handler");
 
@@ -75,7 +76,9 @@ module.exports = {
   getAllAppointmentsHandler,
   getAppointmentByIdHandler,
   postAppointmentHandler,
+  updateAppointmentByIdHandler,
   getAllDisponibiltiesHandler,
+  getDisponibiltyByIdHandler,
   postDisponibiltyHandler,
   updatedDisponibiltyByIdHandler,
   getAllDaysHandler,

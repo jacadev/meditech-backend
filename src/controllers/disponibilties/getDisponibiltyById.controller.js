@@ -1,7 +1,10 @@
 const { Disponibilty, Day, Timetable, Doctor, Person, Specialty } = require("../../db");
 
-const getAllDisponibiltiesController = async () => {
-    const disponibilties = await Disponibilty.findAll({
+const getDisponibiltyByIdController = async (disponibilty_id) => {
+    const disponibilty = await Disponibilty.findOne({
+        where: {
+            id: disponibilty_id
+        },
         attributes: ["id", "date", "status"],
         include: [
             {
@@ -28,9 +31,11 @@ const getAllDisponibiltiesController = async () => {
                 ],
             }
         ]
-    })
+    });
 
-    return disponibilties;
+    if (!disponibilty) throw new Error(`Hubo un problema la obtener la disponibilidad con el id: ${disponibilty_id}`);
+
+    return disponibilty
 };
 
-module.exports = getAllDisponibiltiesController;
+module.exports = getDisponibiltyByIdController;
