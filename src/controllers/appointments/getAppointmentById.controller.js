@@ -1,7 +1,10 @@
 const { Pay, Appointment, Patient, Disponibilty, Doctor, Day, Timetable, Person, Specialty } = require("../../db.js");
 
-const getAllAppointmentsController = async () => {
-    const appointments = await Appointment.findAll({
+const getAppointmentByIdController = async (appointment_id) => {
+    const appointment = await Appointment.findOne({
+        where: {
+            id: appointment_id
+        },
         attributes: ["id", "date", "consultationReason", "status"],
         include: [
             {
@@ -49,7 +52,9 @@ const getAllAppointmentsController = async () => {
         ]
     });
 
-    return appointments;
+    if (!appointment) throw new Error(`Hubo un problema la obtener la cita con el id: ${appointment_id}`);
+
+    return appointment;
 };
 
-module.exports = getAllAppointmentsController;
+module.exports = getAppointmentByIdController;

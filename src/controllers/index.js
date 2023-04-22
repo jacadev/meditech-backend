@@ -21,11 +21,13 @@ const updateSpecialtieByIdController = require("./specialties/updateSpecialtieBy
 
 // Review Controller
 const getAllReviewsController = require("./reviews/getAllReviews.controller");
+const getReviewByIdController = require("./reviews/getReviewById.controller");
 const postReviewController = require("./reviews/postReview.controller");
 const updateReviewByIdController = require("./reviews/updateReviewById.controller");
 
 // Appointment Controller
 const getAllAppointmentsController = require("./appointments/getAllAppointments.controller");
+const getAppointmentByIdController = require("./appointments/getAppointmentById.controller");
 const postAppointmentController = require("./appointments/postAppointment.controller");
 
 // Disponibilty Controller
@@ -64,9 +66,11 @@ module.exports = {
   postSpecialtieController,
   updateSpecialtieByIdController,
   getAllReviewsController,
+  getReviewByIdController,
   postReviewController,
   updateReviewByIdController,
   getAllAppointmentsController,
+  getAppointmentByIdController,
   postAppointmentController,
   getAllDisponibiltiesController,
   postDisponibiltyController,

@@ -23,11 +23,13 @@ const updateSpecialtieByIdHandler = require('./specialties/updateSpecialtieById.
 
 // Review handlers
 const getAllReviewsHandler = require("./reviews/getAllReviews.handler");
+const getReviewByIdHandler = require("./reviews/getReviewById.handler");
 const postReviewHandler = require("./reviews/postReview.handler");
 const updateReviewByIdHandler = require("./reviews/updateReviewById.handler");
 
 // Appointment handlers
 const getAllAppointmentsHandler = require("./appointments/getAllAppointments.handler");
+const getAppointmentByIdHandler = require("./appointments/getAppointmentById.handler");
 const postAppointmentHandler = require("./appointments/postAppointment.handler");
 
 // Disponibilty handlers
@@ -66,10 +68,12 @@ module.exports = {
   postSpecialtieHandler,
   updateSpecialtieByIdHandler,
   getAllReviewsHandler,
+  getReviewByIdHandler,
   postReviewHandler,
   updateReviewByIdHandler,
   postSigninHandler,
   getAllAppointmentsHandler,
+  getAppointmentByIdHandler,
   postAppointmentHandler,
   getAllDisponibiltiesHandler,
   postDisponibiltyHandler,

@@ -29,7 +29,7 @@ const getPatientByIdController = async (patient_id) => {
       },
       {
         model: Review,
-        attributes: ['comment', 'rating'],
+        attributes: ['id', 'comment', 'rating'],
         where: {
           [Op.or]: [
             { status: true }, // mostramos solo las reviews activas
@@ -40,6 +40,7 @@ const getPatientByIdController = async (patient_id) => {
       },
       {
         model: Appointment,
+        attributes: ["id", "date", "consultationReason"],
         include: [
           {
             model: Pay

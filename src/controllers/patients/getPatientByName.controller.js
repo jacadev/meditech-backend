@@ -26,7 +26,7 @@ const getPatientByNameController = async (patientName) => {
       },
       {
         model: Review,
-        attributes: ['comment', 'rating'],
+        attributes: ['id', 'comment', 'rating'],
         where: {
           [Op.or]: [
             { status: true }, // mostramos solo las reviews activas
@@ -37,6 +37,7 @@ const getPatientByNameController = async (patientName) => {
       },
       {
         model: Appointment,
+        attributes: ["id", "date", "consultationReason"],
         include: [
           {
             model: Pay
@@ -47,7 +48,6 @@ const getPatientByNameController = async (patientName) => {
   });
 
   return patientFilter;
-
 };
 
 module.exports = getPatientByNameController;

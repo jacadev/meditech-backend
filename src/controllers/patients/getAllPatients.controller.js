@@ -2,13 +2,13 @@ const { Patient, Rol, Person, Review, Appointment, Pay } = require('../../db');
 
 const getAllPatientsController = async () => {
   const response = await Patient.findAll({
+    attributes: ["id"],
     include: [
       {
         model: Person,
         attributes: [
           'userName',
           'email',
-          "password",
           'firstName',
           'lastName',
           'phone',
@@ -24,10 +24,19 @@ const getAllPatientsController = async () => {
         ],
       },
       {
-        model: Review               
+        model: Review,
+        attributes: ['id', 'comment', 'rating'],
+        where: {
+          [Op.or]: [
+            { status: true }, // mostramos solo las reviews activas
+            { id: { [Op.is]: null } } // no hay relación con Review
+          ]
+        },
+        required: false, // para permitir registros sin relación con Review               
       },    
       {
         model: Appointment,
+        attributes: ["id", "date", "consultationReason"],
         include: [
           {
             model: Pay
@@ -36,6 +45,7 @@ const getAllPatientsController = async () => {
       }   
     ],
   });
+  
   return response;
 };
 

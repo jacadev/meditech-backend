@@ -5,6 +5,7 @@ const getDoctorByNameController = async (doctorName) => {
   const nameFilter = doctorName.toLowerCase();
 
   const doctorFilter = await Doctor.findAll({
+    attributes: ['id', 'about_me', 'profile_image', 'tuition_code', 'consultation_cost', 'location', 'diseases_treated'],
     include: [
       {
         model: Specialty,
@@ -30,21 +31,21 @@ const getDoctorByNameController = async (doctorName) => {
       },
       {
         model: Disponibilty,
-        attributes: ["date", "status"],
+        attributes: ["id", "date", "status"],
         include: [
           {
             model: Day,
-            attributes: ["day", "status"],
+            attributes: ["id", "day", "status"],
           },
           {
             model: Timetable,
-            attributes: ["startTime", "endTime", "status"],
+            attributes: ["id", "startTime", "endTime", "status"],
           },
         ],
       },
       {
         model: Review,
-        attributes: ['comment', 'rating'],
+        attributes: ['id', 'comment', 'rating'],
         where: {
           [Op.or]: [
             { status: true }, // mostramos solo las reviews activas
