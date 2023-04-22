@@ -1,35 +1,53 @@
-require("dotenv").config();
-const { API_KEY } = process.env;
-const axios = require("axios");
-//const { Op } = require("sequelize");
-// const { Patient } = require("../db");
-// const { arrayCleaner, objTemplate } = require("../helpers");
+const { Op, literal } = require("sequelize");
+const { Patient, Person, Rol, Review, Appointment, Pay } = require("../../db");
 
 const getPatientByNameController = async (patientName) => {
-  // if (patientName) {
-  //   const localDbRaw = await Patient.findAll({
-  //     ...objTemplate,
-  //     where: {
-  //       name: {
-  //         [Op.iLike]: `%${patientName}%`,
-  //       },
-  //     },
-  //   });
-  //   const localDb = arrayCleaner(localDbRaw);
-  //   const { data } = await axios.get(
-  //     `https://api.thepatientapi.com/v1/breeds?api_key=${API_KEY}`
-  //   );
-  //   const apiPatients = arrayCleaner(data);
-  //   const dbMerged = [...apiPatients, ...localDb];
-  //   const filtered = dbMerged.filter((found) =>
-  //     found.name.toLowerCase().includes(patientName.toLowerCase())
-  //   );
-  //   if (filtered.length !== 0) return filtered;
-  //   return filtered;
-  // }
-  // throw new Error(
-  //   "You must provide at least a name by query to perform a search"
-  // );
+  const nameFilter = patientName.toLowerCase();
+
+  const patientFilter = await Patient.findAll({
+    attributes: ["id"],
+    include: [
+      {
+        model: Person,
+        attributes: ['userName', 'email', 'firstName', 'lastName', 'phone', 'age', 'gender', 'rol_id'],
+        include: [
+          {
+            model: Rol,
+            attributes: ['nameRol']
+          }
+        ],
+        where: {
+          [Op.or]: [
+            { first_name: { [Op.like]: `%${nameFilter}%` } },
+            { last_name: { [Op.like]: `%${nameFilter}%` } },
+            { [Op.and]: literal(`lower(concat("first_name", ' ', "last_name")) like '%${nameFilter}%'`) }
+          ]
+        }
+      },
+      {
+        model: Review,
+        attributes: ['comment', 'rating'],
+        where: {
+          [Op.or]: [
+            { status: true }, // mostramos solo las reviews activas
+            { id: { [Op.is]: null } } // no hay relación con Review
+          ]
+        },
+        required: false, // para permitir registros sin relación con Review
+      },
+      {
+        model: Appointment,
+        include: [
+          {
+            model: Pay
+          }
+        ]
+      }
+    ],
+  });
+
+  return patientFilter;
+
 };
 
 module.exports = getPatientByNameController;

@@ -6,7 +6,7 @@ const getPatientByIdController = async (patient_id) => {
     where: {
       id: patient_id
     },
-    attributes: ["person_id"],
+    attributes: ["id"],
     include: [
       {
         model: Person,
