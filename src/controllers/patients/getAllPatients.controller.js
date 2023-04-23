@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const { Patient, Rol, Person, Review, Appointment, Pay } = require('../../db');
 
 const getAllPatientsController = async () => {

@@ -1,29 +1,17 @@
+require("dotenv").config();
+const { SIB_API_KEY } = process.env;
 const SibApiSDK = require("sib-api-v3-sdk");
-
-// instantiate new SendinBlue API client
 const SibClient = SibApiSDK.ApiClient.instance;
-
-// Authentication
-SibClient.authentications["api-key"].apiKey =
-  process.env.SIB_API_KEY ||
-  "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";
-
+SibClient.authentications["api-key"].apiKey = SIB_API_KEY;
 const transactionEmailApi = new SibApiSDK.TransactionalEmailsApi();
-
 let smtpMailData = new SibApiSDK.SendSmtpEmail();
 
 const sender = {
-  email: "no-reply@meditech-app.com", // your email address
-  name: "Jesus Castle",
+  email: "notificaciones@meditech-app.com", // your email address
+  name: "MediTech",
 };
 
-const testData = {
-  email: "jaca.btc@gmail.com",
-  name: "Benito",
-  fullname: "Benito Camelo",
-};
-
-const SendWaitlistEmail = async (userData) => {
+const SendWaitlistEmail = async (userData, template) => {
   try {
     smtpMailData.sender = sender;
 
@@ -34,18 +22,9 @@ const SendWaitlistEmail = async (userData) => {
       },
     ];
 
-    smtpMailData.subject = "You are on the waitlist!";
-
-    smtpMailData.params = {
-      name: userData.fullname,
-      twitter: "@makeuseof",
-    };
-
-    smtpMailData.htmlContent =
-      "<html><body><p>Hello {{ params.name }}, " +
-      "welcome to makeuseof.com waitlist. We'll notify you " +
-      "when we launch. Kindly follow us on Twitter " +
-      "{{ params.twitter }}.</p></body></html>"; // send email
+    smtpMailData.subject = userData.subject;
+    smtpMailData.params = userData;
+    smtpMailData.htmlContent = template; // send email
 
     await transactionEmailApi
       .sendTransacEmail(smtpMailData)
@@ -63,5 +42,25 @@ const SendWaitlistEmail = async (userData) => {
   }
 };
 
+const testData = {
+  email: "icroosfire22@gmail.com",
+  firstName: "Nicolas",
+  lastName: "Flores",
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+  patientName: "Nicolas",
+  appointmentDate: "5 de mayo de 2023",
+  appointmentTime: "4:00 pm",
+  drFirstName: "Carlos",
+  drLastName: "Vargas",
+  get doctorName() {
+    return `${this.drFirstName} ${this.drLastName}`;
+  },
+  specialty: "Medicina Interna",
+  subject: "Cita reservada exitosamente",
+};
 
-SendWaitlistEmail(testData);
+const htmlContent = require("../templates/appointmentBooked.template");
+
+SendWaitlistEmail(testData, htmlContent);
