@@ -16,12 +16,19 @@ const getAllPatientsController = async () => {
           'age',
           'gender',
           'rol_id',
+          'status'
         ],
+        where: {
+          status: true
+        },
         include: [
           {
             model: Rol,
             attributes: ['nameRol'],
-          },                   
+            where: {
+              status: true
+            },
+          },
         ],
       },
       {
@@ -34,19 +41,22 @@ const getAllPatientsController = async () => {
           ]
         },
         required: false, // para permitir registros sin relación con Review               
-      },    
+      },
       {
         model: Appointment,
         attributes: ["id", "date", "consultationReason"],
+        where: {
+          status: true
+        },
         include: [
           {
             model: Pay
           }
         ]
-      }   
+      }
     ],
   });
-  
+
   return response;
 };
 

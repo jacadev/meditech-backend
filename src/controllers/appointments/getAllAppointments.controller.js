@@ -3,6 +3,9 @@ const { Pay, Appointment, Patient, Disponibilty, Doctor, Day, Timetable, Person,
 const getAllAppointmentsController = async () => {
     const appointments = await Appointment.findAll({
         attributes: ["id", "date", "consultationReason", "status"],
+        where: {
+            status: true
+        },
         include: [
             {
                 model: Patient,

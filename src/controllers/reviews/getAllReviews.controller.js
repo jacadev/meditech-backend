@@ -2,7 +2,10 @@ const { Review, Patient, Doctor, Person, Specialty, Rol } = require("../../db");
 
 const getAllReviewsController = async () => {
     const reviews = await Review.findAll({
-        attributes:["id", "comment", "rating", "status", "comment_date", "status"],
+        attributes: ["id", "comment", "rating", "status", "comment_date", "status"],
+        where: {
+            status: true
+        },
         include: [
             {
                 model: Doctor,
