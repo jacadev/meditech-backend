@@ -3,11 +3,13 @@ const payRouter = Router();
 
 const {
     postPayHandler,
-    getPayHandler
+    getPayHandler,
+    getPayByIdHandler
 } = require("../handlers");
 
 // appointmentsRouter.get("/", getAllAppointmentsHandler);
 payRouter.post("/", postPayHandler);
 payRouter.get("/", getPayHandler);
+payRouter.get("/pay_id", getPayByIdHandler);
 
 module.exports = payRouter;

@@ -50,7 +50,8 @@ const updateTimetableByIdHandler = require("./timetables/updateTimetableById.han
 
 //Pay handlers
 const postPayHandler = require('./pay/postPay.handler');
-const getPayHandler = require('./pay/getPay.handler')
+const getPayHandler = require('./pay/getPay.handler');
+const getPayByIdHandler = require('./pay/getPayById.handler');
 
 module.exports = {
   getAllDoctorsHandler,
@@ -88,5 +89,6 @@ module.exports = {
   postTimetableHandler,
   updateTimetableByIdHandler,
   postPayHandler,
-  getPayHandler
+  getPayHandler,
+  getPayByIdHandler
 }
