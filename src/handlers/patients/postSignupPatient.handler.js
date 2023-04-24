@@ -1,5 +1,7 @@
-const { postPatientController } = require('../../controllers');
-const { generateToken } = require('../../helpers/utils.herlper');
+const { postPatientController } = require("../../controllers");
+const { generateToken } = require("../../helpers/utils.herlper");
+const sendMail = require("../../mailer/sendMail.mailer");
+const signupMessageHtml = require("../../mailer/templates/signupMessage.template");
 
 const postSigupPatientHandler = async (req, res) => {
   const {
@@ -12,9 +14,9 @@ const postSigupPatientHandler = async (req, res) => {
     age,
     gender,
     rol,
+    preload,
   } = req.body;
   try {
-    
     const patientPosted = await postPatientController(
       user_name,
       email,
@@ -26,6 +28,7 @@ const postSigupPatientHandler = async (req, res) => {
       gender,
       rol
     );
+
     res.send({
       id: patientPosted.id,
       user_name: patientPosted.userName,
@@ -33,6 +36,16 @@ const postSigupPatientHandler = async (req, res) => {
       rol: patientPosted.rol_id,
       token: generateToken(patientPosted),
     });
+
+    if (preload === false) {
+      let mailInfo = {
+        firstName: patientPosted.firstName,
+        email: patientPosted.email,
+        fullName: patientPosted.firstName + " " + patientPosted.lastName,
+        subject: "¡Bienvenido a Meditech!",
+      };
+      await sendMail(mailInfo, signupMessageHtml);
+    }
   } catch (error) {
     res.status(404).json({ error: error.message });
   }

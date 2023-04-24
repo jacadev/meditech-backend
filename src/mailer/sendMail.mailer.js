@@ -1,19 +1,17 @@
 require("dotenv").config();
-const { SIB_API_KEY } = process.env;
 const SibApiSDK = require("sib-api-v3-sdk");
 const SibClient = SibApiSDK.ApiClient.instance;
-SibClient.authentications["api-key"].apiKey = SIB_API_KEY;
+SibClient.authentications["api-key"].apiKey =
+  "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";
 const transactionEmailApi = new SibApiSDK.TransactionalEmailsApi();
 let smtpMailData = new SibApiSDK.SendSmtpEmail();
 
-const sender = {
-  email: "notificaciones@meditech-app.com", // your email address
-  name: "MediTech",
-};
-
-const SendWaitlistEmail = async (userData, template) => {
+const sendMail = async (userData, template) => {
   try {
-    smtpMailData.sender = sender;
+    smtpMailData.sender = {
+      email: "notificaciones@meditech-app.com", // your email address
+      name: "Meditech",
+    };
 
     smtpMailData.to = [
       {
@@ -42,25 +40,4 @@ const SendWaitlistEmail = async (userData, template) => {
   }
 };
 
-const testData = {
-  email: "icroosfire22@gmail.com",
-  firstName: "Nicolas",
-  lastName: "Flores",
-  get fullName() {
-    return `${this.firstName} ${this.lastName}`;
-  },
-  patientName: "Nicolas",
-  appointmentDate: "5 de mayo de 2023",
-  appointmentTime: "4:00 pm",
-  drFirstName: "Carlos",
-  drLastName: "Vargas",
-  get doctorName() {
-    return `${this.drFirstName} ${this.drLastName}`;
-  },
-  specialty: "Medicina Interna",
-  subject: "Cita reservada exitosamente",
-};
-
-const htmlContent = require("../templates/appointmentBooked.template");
-
-SendWaitlistEmail(testData, htmlContent);
+module.exports = sendMail;

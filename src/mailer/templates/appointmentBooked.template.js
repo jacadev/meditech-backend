@@ -1,4 +1,4 @@
-const htmlContent = 
+const appointmentBookedHtml = 
 `<div id="m_-6849740353837419289body" bgcolor="#ffffff" marginwidth="0" marginheight="0">
 <table width="600" cellpadding="0" cellspacing="0" border="0" align="center">
   <tbody>
@@ -23,7 +23,7 @@ const htmlContent =
         </p>
         <p
           style="font-family:Arial,Tahoma,Helvetica;font-size:16px;line-height:24px;text-align:left;margin:15px 24px 0px 24px;color:#171140">
-          A continuación, <b>te mostramos los detalles de tu cita.</b></p>
+          A continuación, <b>te mostramos los detalles de tu cita:</b></p>
       </td>
     </tr>
     <tr>
@@ -170,4 +170,4 @@ const htmlContent =
 </table>  
 </div>`
 
-module.exports = htmlContent;
+module.exports = appointmentBookedHtml;
