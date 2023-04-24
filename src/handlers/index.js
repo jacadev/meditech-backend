@@ -14,6 +14,7 @@ const postSignupPatientHandler = require('./patients/postSignupPatient.handler')
 const updatePatientByIdHandler = require('./patients/updatePatientById.handler');
 const deletePatientByIdHandler = require('./patients/deletePatientById.handler');
 const postSigninHandler = require('./patients/postSignin.handler');
+const postSigninGoogleHandler = require('./patients/postSigninGoogle.handler');
 
 // Specialty handlers
 const getAllSpecialtiesHandler = require('./specialties/getAllSpecialties.handler');
@@ -21,32 +22,32 @@ const postSpecialtieHandler = require('./specialties/postSpecialtie.handler');
 const updateSpecialtieByIdHandler = require('./specialties/updateSpecialtieById.handler');
 
 // Review handlers
-const getAllReviewsHandler = require("./reviews/getAllReviews.handler");
-const getReviewByIdHandler = require("./reviews/getReviewById.handler");
-const postReviewHandler = require("./reviews/postReview.handler");
-const updateReviewByIdHandler = require("./reviews/updateReviewById.handler");
+const getAllReviewsHandler = require('./reviews/getAllReviews.handler');
+const getReviewByIdHandler = require('./reviews/getReviewById.handler');
+const postReviewHandler = require('./reviews/postReview.handler');
+const updateReviewByIdHandler = require('./reviews/updateReviewById.handler');
 
 // Appointment handlers
-const getAllAppointmentsHandler = require("./appointments/getAllAppointments.handler");
-const getAppointmentByIdHandler = require("./appointments/getAppointmentById.handler");
-const postAppointmentHandler = require("./appointments/postAppointment.handler");
-const updateAppointmentByIdHandler = require("./appointments/updateAppointmentById.handler");
+const getAllAppointmentsHandler = require('./appointments/getAllAppointments.handler');
+const getAppointmentByIdHandler = require('./appointments/getAppointmentById.handler');
+const postAppointmentHandler = require('./appointments/postAppointment.handler');
+const updateAppointmentByIdHandler = require('./appointments/updateAppointmentById.handler');
 
 // Disponibilty handlers
-const getAllDisponibiltiesHandler = require("./disponibilties/getAllDisponibilties.handler");
-const getDisponibiltyByIdHandler = require("./disponibilties/getDisponibiltyById.handler");
-const postDisponibiltyHandler = require("./disponibilties/postDisponibilty.handler");
-const updatedDisponibiltyByIdHandler = require("./disponibilties/updatedDisponibiltyById.handler");
+const getAllDisponibiltiesHandler = require('./disponibilties/getAllDisponibilties.handler');
+const getDisponibiltyByIdHandler = require('./disponibilties/getDisponibiltyById.handler');
+const postDisponibiltyHandler = require('./disponibilties/postDisponibilty.handler');
+const updatedDisponibiltyByIdHandler = require('./disponibilties/updatedDisponibiltyById.handler');
 
 // Day handlers
-const getAllDaysHandler = require("./days/getAllDays.handler");
-const postDayHandler = require("./days/postDay.handler");
-const updateDayByIdHandler = require("./days/updateDayById.handler");
+const getAllDaysHandler = require('./days/getAllDays.handler');
+const postDayHandler = require('./days/postDay.handler');
+const updateDayByIdHandler = require('./days/updateDayById.handler');
 
 // Timetable handlers
-const getAllTimetablesHandler = require("./timetables/getAllTimetables.handler");
-const postTimetableHandler = require("./timetables/postTimetable.handler");
-const updateTimetableByIdHandler = require("./timetables/updateTimetableById.handler");
+const getAllTimetablesHandler = require('./timetables/getAllTimetables.handler');
+const postTimetableHandler = require('./timetables/postTimetable.handler');
+const updateTimetableByIdHandler = require('./timetables/updateTimetableById.handler');
 
 //Pay handlers
 const postPayHandler = require('./pay/postPay.handler');
@@ -90,5 +91,6 @@ module.exports = {
   updateTimetableByIdHandler,
   postPayHandler,
   getPayHandler,
-  getPayByIdHandler
-}
+  getPayByIdHandler,
+  postSigninGoogleHandler,
+};
