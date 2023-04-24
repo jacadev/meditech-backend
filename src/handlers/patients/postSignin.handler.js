@@ -5,7 +5,7 @@ const { generateToken } = require('../../helpers/utils.herlper');
 const postSigninHandler = async (req, res) => {
   const user = await Person.findOne({ where: { email: req.body.email } });
   const patient = await Patient.findOne({
-    where: { person_id: patientPosted.id },
+    where: { person_id: patient.id },
     include: [{ model: Person, attributes: ['id'] }],
   });
   if (user) {
