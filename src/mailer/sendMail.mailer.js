@@ -1,8 +1,7 @@
 require("dotenv").config();
 const SibApiSDK = require("sib-api-v3-sdk");
 const SibClient = SibApiSDK.ApiClient.instance;
-SibClient.authentications["api-key"].apiKey =
-  "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";
+SibClient.authentications["api-key"].apiKey = "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";
 const transactionEmailApi = new SibApiSDK.TransactionalEmailsApi();
 let smtpMailData = new SibApiSDK.SendSmtpEmail();
 
