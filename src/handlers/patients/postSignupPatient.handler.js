@@ -2,6 +2,7 @@ const { postPatientController } = require("../../controllers");
 const { generateToken } = require("../../helpers/utils.herlper");
 const sendMail = require("../../mailer/sendMail.mailer");
 const signupMessageHtml = require("../../mailer/templates/signupMessage.template");
+const { Patient, Person } = require('../../db');
 
 const postSigupPatientHandler = async (req, res) => {
   const {
@@ -29,8 +30,13 @@ const postSigupPatientHandler = async (req, res) => {
       rol
     );
 
+    const patient = await Patient.findOne({
+      where: { person_id: patientPosted.id },
+      include: [{ model: Person, attributes: ['id'] }],
+    });
+
     res.send({
-      id: patientPosted.id,
+      id: patient.id,
       user_name: patientPosted.userName,
       email: patientPosted.email,
       rol: patientPosted.rol_id,
