@@ -9,7 +9,7 @@ const postPatientGoogleController = async (
   // Verificar si la persona ya existe en la base de datos
   const existingPerson = await Person.findOne({
     where: { email },
-    attributes: ['email', 'userName']
+    attributes: ['email', 'userName', "id"]
   });
 
   if (existingPerson) {
