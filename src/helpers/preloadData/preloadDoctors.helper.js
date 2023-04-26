@@ -239,7 +239,7 @@ const preloadDoctors = [
     about_me:
       "profile_imageuna dermatóloga especializada en cosmetología. Me apasiona ayudar a mis pacientes a lograr una piel saludable y radiante mediante tratamientos y procedimientos dermatológicos avanzados. También ofrezco tratamientos cosméticos como rellenos dérmicos y botox para mejorar la apariencia de la piel y reducir las arrugas y líneas de expresión. Siempre me enfoco en brindar la mejor atención y resultados a mis pacientes.",
     profile_image:
-      "https://www.10x10studios.com/cms/wp-content/uploads/2020/07/Healthcare-Provider-headshot.jpg",
+      "https://static8.depositphotos.com/1518767/1030/i/950/depositphotos_10304558-stock-photo-happy-female-doctor-writing-her.jpg",
     tuition_code: "DMC 32587",
     consultation_cost: 60.0,
     location: {
