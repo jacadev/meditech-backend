@@ -1,7 +1,7 @@
 const preloadRoles = [
     {nameRol: 'Doctor'},
-    {nameRol: 'Patient'},
-    {nameRol: 'Admin'},
+    {nameRol: 'Paciente'},
+    {nameRol: 'Administrador'},
 ]
 
 module.exports = preloadRoles;
