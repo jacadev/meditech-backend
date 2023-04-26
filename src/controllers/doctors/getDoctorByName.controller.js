@@ -1,4 +1,4 @@
-const {Op, literal} = require('sequelize');
+const { Op, literal } = require('sequelize');
 const { Doctor, Specialty, Person, Rol, Review, Disponibilty, Day, Timetable } = require("../../db");
 
 const getDoctorByNameController = async (doctorName) => {
@@ -23,9 +23,14 @@ const getDoctorByNameController = async (doctorName) => {
         ],
         where: {
           [Op.or]: [
-            { first_name: { [Op.like]: `%${nameFilter}%` } },
-            { last_name: { [Op.like]: `%${nameFilter}%` } },
-            { [Op.and]: literal(`lower(concat("first_name", ' ', "last_name")) like '%${nameFilter}%'`) }
+            {
+              [Op.or]: [
+                { first_name: { [Op.like]: `%${nameFilter}%` } },
+                { last_name: { [Op.like]: `%${nameFilter}%` } },
+                { [Op.and]: literal(`lower(concat("first_name", ' ', "last_name")) like '%${nameFilter}%'`) },
+              ]
+            },
+            { id: { [Op.in]: literal(`(SELECT "doctor_id" FROM "doctor_specialties" WHERE "specialty_id" IN (SELECT id FROM "specialties" WHERE "specialty" ILIKE '%${nameFilter}%'))`) } }
           ]
         }
       },
