@@ -187,7 +187,7 @@ const preloadDoctors = [
     last_name: "Bravo",
     phone: ["123 888 789"],
     age: 54,
-    gender: "Masculino",
+    gender: "Femenino",
     about_me:
       "Me considero una pediatra comprometida con mis pacientes, enfocada en brindarles la mejor atención posible y ayudarlos a mejorar su salud. Mi especialidad en neumología pediátrica me permite tratar enfermedades respiratorias en niños con la mejor tecnología disponible.",
     profile_image:
