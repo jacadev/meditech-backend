@@ -51,6 +51,7 @@ const getAllDoctorsController = async () => {
             },
           },
         ],
+        required: false, // para permitir registros sin relación con Disponibilties
       },
       {
         model: Review,

@@ -251,6 +251,31 @@ const preloadDoctors = [
     specialties: [45, 3],
     rol_id: [1],
   },
+  // Probando con más médicos
+  {
+    user_name: "joselopez",
+    email: "jose.lopez@gmail.com",
+    password: "myencryptedpassword",
+    first_name: "Jose",
+    last_name: "Lopez Hernandez",
+    phone: ["311 223 4455"],
+    age: 52,
+    gender: "Masculino",
+    about_me:
+      "Soy un médico comprometido con dar la mejor atención a mis pacientes.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-35.jpg",
+    tuition_code: "CMP 98765",
+    consultation_cost: 30.0,
+    location: {
+      city: "Cali",
+      country: "Colombia",
+      address: "Carrera 10 #22-33"
+    },
+    diseases_treated: ["Gripe", "Bronquitis", "Asma"],
+    specialties: [3, 5],
+    rol_id: [1]
+  },
 ];
 
 module.exports = preloadDoctors;
