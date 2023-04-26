@@ -276,6 +276,370 @@ const preloadDoctors = [
     specialties: [3, 5],
     rol_id: [1]
   },
+  {
+    user_name: "marianacastillo",
+    email: "mari_castillo@yahoo.com",
+    password: "mypassword123",
+    first_name: "Mariana",
+    last_name: "Castillo",
+    phone: ["315 569 4433"],
+    age: 40,
+    gender: "Femenino",
+    about_me:
+      "Como médica, me esfuerzo por brindar una atención personalizada a cada uno de mis pacientes.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-10.jpg",
+    tuition_code: "CMP 11223",
+    consultation_cost: 35.0,
+    location: {
+      city: "Bogota",
+      country: "Colombia",
+      address: "Calle 85 #20-45"
+    },
+    diseases_treated: ["Artritis", "Artrosis", "Dolor de espalda"],
+    specialties: [2, 5],
+    rol_id: [1]
+  },
+  {
+    user_name: "pedrogonzalez",
+    email: "pgonzalez@hotmail.com",
+    password: "mypasswordsecure",
+    first_name: "Pedro",
+    last_name: "Gonzalez",
+    phone: ["318 225 9988"],
+    age: 36,
+    gender: "Masculino",
+    about_me:
+      "Soy un médico especializado en el tratamiento de enfermedades cardiovasculares.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-19.jpg",
+    tuition_code: "CMP 22334",
+    consultation_cost: 40.0,
+    location: {
+      city: "Medellin",
+      country: "Colombia",
+      address: "Carrera 43A #34-25"
+    },
+    diseases_treated: [
+      "Enfermedad coronaria",
+      "Hipertensión arterial",
+      "Insuficiencia cardíaca"
+    ],
+    specialties: [1, 3],
+    rol_id: [1]
+  },
+  {
+    user_name: "javierrodriguez",
+    email: "javier_rodriguez@gmail.com",
+    password: "mypassword123",
+    first_name: "Javier",
+    last_name: "Rodriguez",
+    phone: ["310 445 6789"],
+    age: 45,
+    gender: "Masculino",
+    about_me:
+      "Soy un médico apasionado por la investigación y el avance de la medicina.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-32-1.jpg",
+    tuition_code: "CMP 33645",
+    consultation_cost: 28.0,
+    location: {
+      city: "Cali",
+      country: "Colombia",
+      address: "Carrera 5 #23-10"
+    },
+    diseases_treated: ["Cáncer", "Leucemia", "Linfoma"],
+    specialties: [1, 4],
+    rol_id: [1]
+  },
+  {
+    user_name: "andresarango",
+    email: "arango_andres@yahoo.com",
+    password: "myencryptedpassword",
+    first_name: "Andres",
+    last_name: "Arango",
+    phone: ["318 448 3322"],
+    age: 34,
+    gender: "Masculino",
+    about_me:
+      "Soy un médico que cree en la importancia de mantener una buena salud mental.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-33-1.jpg",
+    tuition_code: "CMP 99887",
+    consultation_cost: 25.5,
+    location: {
+      city: "Bogota",
+      country: "Colombia",
+      address: "Calle 100 #15-25"
+    },
+    diseases_treated: ["Depresión", "Ansiedad", "Trastornos del sueño"],
+    specialties: [2, 4],
+    rol_id: [1]
+  },
+  {
+    user_name: "lucasmartinez",
+    email: "lmartinez@hotmail.com",
+    password: "mypasswordsecure",
+    first_name: "Lucia",
+    last_name: "Martinez",
+    phone: ["319 567 2345"],
+    age: 41,
+    gender: "Femenino",
+    about_me:
+      "Soy un médico enfocado en el bienestar de mis pacientes y en lograr resultados efectivos.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-23.jpg",
+    tuition_code: "CMP 12345",
+    consultation_cost: 32.0,
+    location: {
+      city: "Medellin",
+      country: "Colombia",
+      address: "Carrera 80 #44-57"
+    },
+    diseases_treated: ["Problemas renales", "Infecciones urinarias", "Cálculos renales"],
+    specialties: [3, 5],
+    rol_id: [1]
+  },
+  {
+    user_name: "sofiaperez",
+    email: "soperez@gmail.com",
+    password: "myencryptedpassword",
+    first_name: "Sofia",
+    last_name: "Perez",
+    phone: ["315 998 8877"],
+    age: 27,
+    gender: "Femenino",
+    about_me:
+      "Soy una médica comprometida con brindar una atención integral y personalizada a mis pacientes.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-16.jpg",
+    tuition_code: "CMP 55577",
+    consultation_cost: 28.5,
+    location: {
+      city: "Cali",
+      country: "Colombia",
+      address: "Carrera 10 #32-50"
+    },
+    diseases_treated: ["Infecciones respiratorias", "Alergias", "Neumonía"],
+    specialties: [4, 5],
+    rol_id: [1]
+  },
+  {
+    user_name: "juanrojas",
+    email: "jrojas2001@hotmail.com",
+    password: "mypassword123",
+    first_name: "Juana",
+    last_name: "Rojas",
+    phone: ["317 333 7788"],
+    age: 49,
+    gender: "Femenino",
+    about_me:
+      "Soy un médico enfocado en el bienestar de cada uno de mis pacientes y en mejorar su calidad de vida.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-13.jpg",
+    tuition_code: "CMP 00987",
+    consultation_cost: 33.0,
+    location: {
+      city: "Bogota",
+      country: "Colombia",
+      address: "Calle 72 #15-26"
+    },
+    diseases_treated: ["Problemas estomacales", "Colitis", "Enfermedad de Crohn"],
+    specialties: [1, 3],
+    rol_id: [1]
+  },
+  {
+    user_name: "ana_castro",
+    email: "acastro@gmail.com",
+    password: "pandas123",
+    first_name: "Ana",
+    last_name: "Castro",
+    phone: ["310 555 2244"],
+    age: 36,
+    gender: "Femenino",
+    about_me:
+      "Soy una odontóloga apasionada por mantener la salud dental de mis pacientes.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-34-1.jpg",
+    tuition_code: "ODN 00532",
+    consultation_cost: 50.0,
+    location: {
+      city: "Barranquilla",
+      country: "Colombia",
+      address: "Cra. 48 #70-61"
+    },
+    diseases_treated: ["Caries", "Gingivitis", "Halitosis"],
+    specialties: [1],
+    rol_id: [1]
+  },
+  {
+    user_name: "maria_fernandez",
+    email: "mfernandez@hotmail.com",
+    password: "giraffe123",
+    first_name: "Mario",
+    last_name: "Fernandez",
+    phone: ["315 222 7766"],
+    age: 58,
+    gender: "Masculino",
+    about_me:
+      "Soy una oftalmóloga con muchos años de experiencia en el tratamiento de enfermedades visuales.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-10-1.jpg",
+    tuition_code: "OFT 01245",
+    consultation_cost: 70.0,
+    location: {
+      city: "Medellin",
+      country: "Colombia",
+      address: "Cra. 43a #1-50"
+    },
+    diseases_treated: ["Miopía", "Astigmatismo", "Cataratas"],
+    specialties: [2],
+    rol_id: [1]
+  },
+  {
+    user_name: "julio_vargas",
+    email: "jvargas@gmail.com",
+    password: "penguins123",
+    first_name: "Julio",
+    last_name: "Vargas",
+    phone: ["318 444 9988"],
+    age: 42,
+    gender: "Masculino",
+    about_me:
+      "Soy un cardiólogo comprometido con el bienestar de mis pacientes y el tratamiento de enfermedades cardiovasculares.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-37-1.jpg",
+    tuition_code: "CDL 00876",
+    consultation_cost: 90.0,
+    location: {
+      city: "Bogota",
+      country: "Colombia",
+      address: "Calle 72 #15-26"
+    },
+    diseases_treated: ["Hipertensión arterial", "Enfermedad coronaria", "Arritmias cardíacas"],
+    specialties: [3],
+    rol_id: [1]
+  },
+  {
+    user_name: "alejandro_perez",
+    email: "aperez@yahoo.com",
+    password: "tigers123",
+    first_name: "Alejandro",
+    last_name: "Perez",
+    phone: ["314 666 3322"],
+    age: 31,
+    gender: "Masculino",
+    about_me:
+      "Soy un odontólogo que se preocupa por hacer sentir cómodos y seguros a mis pacientes durante sus tratamientos.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-15-1.jpg",
+    tuition_code: "ODN 03012",
+    consultation_cost: 45.0,
+    location: {
+      city: "Cali",
+      country: "Colombia",
+      address: "Av. Colombia #13A-59"
+    },
+    diseases_treated: ["Placa dental", "Sarro", "Dientes torcidos"],
+    specialties: [1],
+    rol_id: [1]
+  },
+  {
+    user_name: "carolina_diaz",
+    email: "cdiaz@gmail.com",
+    password: "puppies123",
+    first_name: "Carlos",
+    last_name: "Diaz",
+    phone: ["311 111 5566"],
+    age: 25,
+    gender: "Masculino",
+    about_me:
+      "Soy una oftalmóloga recién graduada con muchas ganas de aprender y ayudar a las personas con problemas visuales.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-39-1.jpg",
+    tuition_code: "OFT 05678",
+    consultation_cost: 60.0,
+    location: {
+      city: "Cartagena",
+      country: "Colombia",
+      address: "Cl. 36 #3-70"
+    },
+    diseases_treated: ["Hipermetropía", "Glaucoma", "Degeneración macular"],
+    specialties: [2],
+    rol_id: [1]
+  },
+  {
+    user_name: "daniel_jimenez",
+    email: "djimenez@hotmail.com",
+    password: "kittens123",
+    first_name: "Daniela",
+    last_name: "Jimenez",
+    phone: ["317 555 7722"],
+    age: 47,
+    gender: "Femenino",
+    about_me:
+      "Soy un cardiólogo comprometido con la prevención de enfermedades cardiovasculares y la promoción de hábitos saludables.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-25-1.jpg",
+    tuition_code: "CDL 01324",
+    consultation_cost: 85.0,
+    location: {
+      city: "Barranquilla",
+      country: "Colombia",
+      address: "Cra. 53 #75-196"
+    },
+    diseases_treated: ["Insuficiencia cardíaca", "Infarto agudo de miocardio", "Aneurisma aórtico"],
+    specialties: [3],
+    rol_id: [1]
+  },
+  {
+    user_name: "mariana_gomez",
+    email: "mgomez@yahoo.com",
+    password: "lions123",
+    first_name: "Mariana",
+    last_name: "Gomez",
+    phone: ["312 444 4433"],
+    age: 28,
+    gender: "Femenino",
+    about_me:
+      "Soy una odontóloga que cree en la importancia de mantener una buena higiene dental para prevenir enfermedades bucales.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-41-1.jpg",
+    tuition_code: "ODN 04032",
+    consultation_cost: 55.0,
+    location: {
+      city: "Medellin",
+      country: "Colombia",
+      address: "Cra. 80 #33-114"
+    },
+    diseases_treated: ["Mal aliento", "Sensibilidad dental", "Infecciones de encías"],
+    specialties: [1],
+    rol_id: [1]
+  },
+  {
+    user_name: "pedro_gutierrez",
+    email: "pgutierrez@hotmail.com",
+    password: "elephants123",
+    first_name: "Paty",
+    last_name: "Gutierrez",
+    phone: ["315 777 9900"],
+    age: 50,
+    gender: "Femenino",
+    about_me:
+      "Soy un oftalmólogo que se preocupa por brindar diagnósticos precisos y tratamientos efectivos a mis pacientes.",
+    profile_image:
+      "https://e9g2x6t2.rocketcdn.me/wp-content/uploads/2021/01/Professional-Headshot-Examples-42-1.jpg",
+    tuition_code: "OFT 02467",
+    consultation_cost: 75.0,
+    location: {
+      city: "Cali",
+      country: "Colombia",
+      address: "Calle 5 #36-26"
+    },
+    diseases_treated: ["Conjuntivitis", "Ojo seco", "Desprendimiento de retina"],
+    specialties: [2],
+    rol_id: [1]
+  },
 ];
 
 module.exports = preloadDoctors;
