@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const { Doctor, Specialty, Person, Rol, Review, Disponibilty, Day, Timetable } = require("../../db");
+const { Doctor, Specialty, Person, Rol, Review, Disponibilty, Day, Timetable, Patient } = require("../../db");
 
 const getDoctorByIdController = async (doctor_id) => {
   const doctor = await Doctor.findOne({
@@ -40,6 +40,24 @@ const getDoctorByIdController = async (doctor_id) => {
       {
         model: Review,
         attributes: ['id', 'comment', 'rating'],
+        include: [
+          {
+                model: Patient,
+                attributes: ["id"],
+                include: [
+                    {
+                        model: Person,
+                        attributes: ['first_name', 'last_name', 'status'],
+                        include: [
+                            {
+                                model: Rol,
+                                attributes: ['name_rol'],
+                            }
+                        ]
+                    },
+                ],
+            },
+        ],
         where: {
           [Op.or]: [
             { status: true }, // mostramos solo las reviews activas

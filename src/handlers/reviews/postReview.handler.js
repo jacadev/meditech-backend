@@ -1,7 +1,10 @@
 const { postReviewController } = require("../../controllers");
 
 const postReviewHandler = async (req, res) => {
-    const { comment, rating, patient_id, doctor_id } = req.body;
+    let { comment, rating, patient_id, doctor_id } = req.body;
+
+    rating = Number(rating);
+
     try {
         const newReview = await postReviewController(comment, rating, patient_id, doctor_id);
 
