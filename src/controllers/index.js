@@ -13,6 +13,7 @@ const getPatientByIdController = require("./patients/getPatientById.controller")
 const postPatientController = require("./patients/postPatient.controller");
 const updatePatientByIdController = require("./patients/updatePatientById.controller");
 const deletePatientByIdController = require("./patients/deletePatientById.controller");
+const updateProfileSettingsPatientByIdController = require("./patients/updateProfileSettingsPatientById.controller")
 
 // Specialty Controller
 const getAllSpecialtiesController = require("./specialties/getAllSpecialties.controller");
@@ -88,5 +89,6 @@ module.exports = {
   updateTimetableByIdController,
   postPayController,
   getAllPayController,
-  getPayByIdController
+  getPayByIdController,
+  updateProfileSettingsPatientByIdController
 };
