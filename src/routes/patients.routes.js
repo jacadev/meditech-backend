@@ -8,7 +8,8 @@ const {
   updatePatientByIdHandler,
   deletePatientByIdHandler,
   postSigninHandler,
-  postSigninGoogleHandler
+  postSigninGoogleHandler,
+  updateProfileSettingsPatientByIdHandler
 } = require('../handlers');
 
 patientsRouter.get('/', getAllPatientsHandler);
@@ -19,5 +20,6 @@ patientsRouter.put('/:patient_id', updatePatientByIdHandler);
 patientsRouter.delete('/:patient_id', deletePatientByIdHandler);
 patientsRouter.post('/signin', postSigninHandler);
 patientsRouter.post("/signinGoogle", postSigninGoogleHandler)
+patientsRouter.put('/profileSettings/:patient_id', updateProfileSettingsPatientByIdHandler);
 
 module.exports = patientsRouter;
