@@ -25,9 +25,9 @@ const getDoctorByNameController = async (doctorName) => {
           [Op.or]: [
             {
               [Op.or]: [
-                { first_name: { [Op.like]: `%${nameFilter}%` } },
-                { last_name: { [Op.like]: `%${nameFilter}%` } },
-                { [Op.and]: literal(`lower(concat("first_name", ' ', "last_name")) like '%${nameFilter}%'`) },
+                { first_name: { [Op.iLike]: `%${nameFilter}%` } },
+                { last_name: { [Op.iLike]: `%${nameFilter}%` } },
+                { [Op.and]: literal(`lower(concat("first_name", ' ', "last_name")) iLike '%${nameFilter}%'`) },
               ]
             },
             { id: { [Op.in]: literal(`(SELECT "doctor_id" FROM "doctor_specialties" WHERE "specialty_id" IN (SELECT id FROM "specialties" WHERE "specialty" ILIKE '%${nameFilter}%'))`) } }
