@@ -1,5 +1,5 @@
-const appointmentBookedHtml = 
-`<div id="m_-6849740353837419289body" bgcolor="#ffffff" marginwidth="0" marginheight="0">
+const appointmentBookedHtml = (params) => {
+return `<div id="m_-6849740353837419289body" bgcolor="#ffffff" marginwidth="0" marginheight="0">
 <table width="600" cellpadding="0" cellspacing="0" border="0" align="center">
   <tbody>
     <tr bgcolor="#5C43FF" style="border-radius:8px;">        
@@ -15,7 +15,7 @@ const appointmentBookedHtml =
       <td>
         <p
           style="font-family:Arial,Tahoma,Helvetica;font-size:16px;line-height:24px;text-align:left;margin:00px 24px 0px 24px;color:#171140">
-          <b>Hola {{ params.firstName }},</b>
+          <b>Hola ${params.firstName},</b>
         </p>
         <p
           style="font-family:Arial,Tahoma,Helvetica;font-size:24px;line-height:32px;text-align:left;margin:15px 24px 0px 24px;color:#5C43FF">
@@ -39,7 +39,7 @@ const appointmentBookedHtml =
                 bgcolor="#F5F8FF" valign="top">Fecha de la cita</td>
               <td
                 style="font-family:Arial,Tahoma,Helvetica;font-size:14px;line-height:24px;color:#202e44;text-align:right"
-                bgcolor="#F5F8FF" valign="top"><b>{{ params.appointmentDate }}</b></td>
+                bgcolor="#F5F8FF" valign="top"><b>${params.appointmentDate}</b></td>
             </tr>
             <tr>
               <td
@@ -47,7 +47,7 @@ const appointmentBookedHtml =
                 bgcolor="#ffffff" valign="top">Hora</td>
               <td
                 style="font-family:Arial,Tahoma,Helvetica;font-size:14px;line-height:24px;color:#202e44;text-align:right"
-                bgcolor="#ffffff" valign="top"><b>{{ params.appointmentTime }}</b></td>
+                bgcolor="#ffffff" valign="top"><b>${params.appointmentTime}</b></td>
             </tr>
             <tr>
               <td
@@ -55,7 +55,7 @@ const appointmentBookedHtml =
                 bgcolor="#F5F8FF" valign="top">Consulta médica con</td>
               <td
                 style="font-family:Arial,Tahoma,Helvetica;font-size:14px;line-height:24px;color:#202e44;text-align:right"
-                bgcolor="#F5F8FF" valign="top"><b>Dr. {{ params.doctorName }}</b></td>
+                bgcolor="#F5F8FF" valign="top"><b>Dr. ${params.doctorName}</b></td>
             </tr>
             <tr>
               <td
@@ -63,7 +63,7 @@ const appointmentBookedHtml =
                 bgcolor="#ffffff" valign="top">Especialidad médica</td>
               <td
                 style="font-family:Arial,Tahoma,Helvetica;font-size:14px;line-height:24px;color:#202e44;text-align:right"
-                bgcolor="#ffffff" valign="top"><b>{{ params.specialty }}</b></td>
+                bgcolor="#ffffff" valign="top"><b>${params.specialty}</b></td>
             </tr>
           </tbody>
         </table>
@@ -168,6 +168,6 @@ const appointmentBookedHtml =
     </tr>      
   </tbody>
 </table>  
-</div>`
+</div>`}
 
 module.exports = appointmentBookedHtml;

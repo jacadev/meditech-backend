@@ -2,10 +2,10 @@ const preloadPersons = [
   {
     // EDITAR EMAIL ESTA PERSONA PARA PROBAR EMAIL DE RESERVA
     user_name: "rasengan",
-    email: "tu.email.de.prueba@gmail.com",
+    email: "jaca.btc@gmail.com",
     password: "891234",
-    first_name: "Naruto",
-    last_name: "Uzumaki",
+    first_name: "Jesus",
+    last_name: "Castillo",
     phone: ["9358478643", "3012587496"],
     age: 25,
     gender: "Masculino",
