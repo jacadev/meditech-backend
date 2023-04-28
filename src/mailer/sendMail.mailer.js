@@ -1,37 +1,33 @@
-require("dotenv").config();
-const SibApiSDK = require("sib-api-v3-sdk");
-const SibClient = SibApiSDK.ApiClient.instance;
-SibClient.authentications["api-key"].apiKey = "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";
-const transactionEmailApi = new SibApiSDK.TransactionalEmailsApi();
-let smtpMailData = new SibApiSDK.SendSmtpEmail();
+const nodemailer = require("nodemailer");
 
 const sendMail = async (userData, template) => {
   try {
-    smtpMailData.sender = {
-      email: "notificaciones@meditech-app.com", // your email address
-      name: "Meditech",
-    };
-
-    smtpMailData.to = [
-      {
-        email: userData.email,
-        name: userData.fullname,
+    let transporter = nodemailer.createTransport({
+      host: "smtp-relay.sendinblue.com",
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: "jesus@etereoworks.com", // generated ethereal user
+        pass: "8dxgbp0KIPJNQTCq", // generated ethereal password
       },
-    ];
+    });
 
-    smtpMailData.subject = userData.subject;
-    smtpMailData.params = userData;
-    smtpMailData.htmlContent = template; // send email
+    let templateToSend = template(userData);
 
-    await transactionEmailApi
-      .sendTransacEmail(smtpMailData)
-      .then((data) => {
-        console.log(data); // log the email id
-      })
-      .catch((error) => {
-        console.error(error);
-        throw new Error(error); // handle errors
-      });
+    let info = await transporter.sendMail({
+      from: '"Meditech" <notificaciones@meditech-app.com>', // sender address
+      to: userData.email, // list of receivers
+      subject: userData.subject, // Subject line
+      params: userData,
+      html: templateToSend, // html body
+    });
+
+    console.log("Message sent: %s", info.messageId);
+    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+    // Preview only available when sending through an Ethereal account
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
   } catch (error) {
     console.log("An error occured...");
     console.error(error);

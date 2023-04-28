@@ -1,5 +1,5 @@
-const signupMessageHtml = 
-`<div id="m_-6849740353837419289body" bgcolor="#ffffff" marginwidth="0" marginheight="0">
+const signupMessageHtml = (params) => {
+return `<div id="m_-6849740353837419289body" bgcolor="#ffffff" marginwidth="0" marginheight="0">
 <table width="600" cellpadding="0" cellspacing="0" border="0" align="center">
   <tbody>
     <tr bgcolor="#5C43FF" style="border-radius:8px;">
@@ -14,7 +14,7 @@ const signupMessageHtml =
       <td>
         <p
           style="font-family:Arial,Tahoma,Helvetica;font-size:16px;line-height:24px;text-align:left;margin:0px 24px 0px 24px;color:#171140">
-          <b>Hola {{ params.firstName }},</b>
+          <b>Hola ${params.firstName},</b>
         </p>
         <p
           style="font-family:Arial,Tahoma,Helvetica;font-size:24px;line-height:32px;text-align:left;margin:15px 24px 0px 24px;color:#5C43FF">
@@ -26,7 +26,7 @@ const signupMessageHtml =
           contactar con los mejores profesionales de la salud desde la comodidad de tu hogar.</p>
         <p
           style="font-family:Arial,Tahoma,Helvetica;font-size:16px;line-height:24px;text-align:left;margin:15px 24px 0px 24px;color:#171140">
-          Tu usuario es: <b>{{ params.email }}</b></p>
+          Tu usuario es: <b>${params.email}</b></p>
       </td>
     </tr>
     <tr>
@@ -139,6 +139,6 @@ const signupMessageHtml =
     </tr>
   </tbody>
 </table>
-</div>`
+</div>`}
 
 module.exports = signupMessageHtml;
