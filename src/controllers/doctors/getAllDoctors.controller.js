@@ -32,9 +32,6 @@ const getAllDoctorsController = async () => {
       {
         model: Disponibilty,
         attributes: ["id", "date", "status"],
-        where: {
-          status: true
-        },
         include: [
           {
             model: Day,

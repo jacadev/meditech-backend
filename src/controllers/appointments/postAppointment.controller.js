@@ -73,6 +73,9 @@ const postAppointmentController = async (
   // Asociar el registro de Appointment con el registro de Disponibility
   await appointment.setDisponibilty(disponibilty);
 
+  // Actualizar el registro de Disponibility
+  await Disponibilty.update({ status: false }, { where: { id: disponibilty_id } });
+
   if (preload === false) {
     
     let drFirstName = disponibilty.doctor.person.dataValues.first_name;
