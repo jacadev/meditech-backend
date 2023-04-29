@@ -40,15 +40,11 @@ const isAdmin = (req, res, next) => {
   }
 };
 
-const generateRecoveryCode = () => {
-  const recoveryCode = Math.floor(Math.random() * 9000 + 1000);
-  const expirationTime = Date.now() + 60 * 60 * 1000; // 1 hora de duración
-  return { code: recoveryCode, expires: expirationTime };
-};
+
 
 module.exports = {
   generateToken,
   isAuth,
   isAdmin,
-  generateRecoveryCode,
+  
 };

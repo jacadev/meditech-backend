@@ -35,36 +35,6 @@ const sendMail = async (userData, template) => {
   }
 };
 
-const sendRecoveryCode = async (user, recoveryCode) => {
-  try {
-    let transporter = nodemailer.createTransport({
-      host: 'smtp-relay.sendinblue.com',
-      port: 587,
-      secure: false, // true for 465, false for other ports
-      auth: {
-        user: 'jesus@etereoworks.com', // generated ethereal user
-        pass: '8dxgbp0KIPJNQTCq', // generated ethereal password
-      },
-    });
 
-    let info = await transporter.sendMail({
-      from: '"Meditech" <notificaciones@meditech-app.com>', // sender address
-      to: user.email, // list of receivers
-      subject: 'Código de recuperación de contraseña', // Subject line
-      text: `Tu código de recuperación de contraseña es ${recoveryCode}`,
-    });
 
-    console.log('Message sent: %s', info.messageId);
-    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-    // Preview only available when sending through an Ethereal account
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-  } catch (error) {
-    console.log('An error occured...');
-    console.error(error);
-    throw new Error(error); // handle errors
-  }
-};
-
-module.exports = { sendMail, sendRecoveryCode };
+module.exports = { sendMail };
