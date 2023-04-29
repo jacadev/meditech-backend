@@ -1,4 +1,3 @@
-const bcrypt = require('bcrypt');
 const { Person } = require('../../db');
 const nodemailer = require('nodemailer');
 
@@ -27,7 +26,7 @@ const postForgotHandler = async (req, res) => {
         from: '"Meditech" <notificaciones@meditech-app.com>', // sender address
         to: user.email, // list of receivers
         subject: 'Código de recuperación de contraseña', // Subject line
-        text: `Tu código de recuperación de contraseña es:  ${recoveryCode}, ${expirationTime}`,
+        text: `Tu código de recuperación de contraseña es:  ${recoveryCode}`,
       };
 
       await transporter.sendMail(mailOptions);
