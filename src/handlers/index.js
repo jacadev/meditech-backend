@@ -18,6 +18,7 @@ const postSigninGoogleHandler = require('./patients/postSigninGoogle.handler');
 const updateProfileSettingsPatientByIdHandler = require("./patients/updateProfileSettingsPatientById.handler")
 const postForgotHandler = require("./patients/postForgotPassword.handler")
 const getAllAppointmentsOfPatientByIdHandler = require("./patients/getAllAppointmentsOfPatientById.handler");
+const postResetHandler = require("./patients/postResetPassword.handler")
 
 // Specialty handlers
 const getAllSpecialtiesHandler = require('./specialties/getAllSpecialties.handler');
@@ -98,5 +99,6 @@ module.exports = {
   postSigninGoogleHandler,
   updateProfileSettingsPatientByIdHandler,
   postForgotHandler,
-  getAllAppointmentsOfPatientByIdHandler
+  getAllAppointmentsOfPatientByIdHandler,
+  postResetHandler
 };

@@ -19,6 +19,7 @@ const getPatientByIdController = async (patient_id) => {
           'age',
           'gender',
           'rol_id',
+          'codigosRecuperacion', 
         ],
         include: [
           {
