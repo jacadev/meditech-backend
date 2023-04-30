@@ -34,13 +34,12 @@ const postForgotHandler = async (req, res) => {
       await user.save();
       res.status(200).send({
         message:
-          "Se ha enviado un código de recuperación a su correo electrónico",
+          `${user.userName}, se le ha enviado un código de recuperación a su correo electrónico,`
       });
     } else {
       res.status(401).send({ message: "Correo electrónico inválido" });
     }
   } catch (error) {
-    console.error(error);
     res.status(500).send({ message: "Ha ocurrido un error en el servidor" });
   }
 };
