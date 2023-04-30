@@ -12,7 +12,6 @@ const postPatientController = async (
   rol
 ) => {
 
-
   const newPerson = await Person.create({
     userName: user_name,
     email: email,

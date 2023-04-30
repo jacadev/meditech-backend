@@ -21,23 +21,15 @@ const updateProfileSettingsPatientByIdController = async (
     return { status: 404, message: 'Persona no encontrada' };
   }
 
-  const personSettings = await person.update({
-    userName: user_name,
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
-    password: bcrypt.hashSync(password, 8),
-    phone: phone ,
-    gender: gender
-  },
-  {
-    where: {
-      id: person.id
-    }
-  });
+  person.userName = user_name;
+  person.email = email;
+  const hashedPassword = await bcrypt.hash(password, 10);
+  person.password = hashedPassword;
+  person.phone = phone;
+  await person.save();
   
-
-  return personSettings;
+  return person;
+  
 };
 
 module.exports = updateProfileSettingsPatientByIdController;

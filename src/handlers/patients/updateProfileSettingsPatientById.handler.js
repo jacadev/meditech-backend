@@ -14,11 +14,13 @@ const updateProfileSettingsPatientByIdHandler = async (req, res) => {
       password,
       phone
     );
+  
     
     res.send({
-      id: patientById.patient_id,
+      id: patient_id,
       user_name: patientById.userName,
       email: patientById.email,
+      rol: patientById.rol_id,
       token: generateToken(patientById),
     });
 
