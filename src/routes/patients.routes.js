@@ -12,13 +12,15 @@ const {
   updateProfileSettingsPatientByIdHandler,
   postForgotHandler,
   getAllAppointmentsOfPatientByIdHandler,
-  postResetHandler
+  postResetHandler,
+  getAllReviewsOfPatientByIdHandler
 } = require('../handlers');
 
 patientsRouter.get('/', getAllPatientsHandler);
 patientsRouter.get('/name', getPatientByNameHandler);
 patientsRouter.get('/:patient_id', getPatientByIdHandler);
 patientsRouter.get('/appointments/:patient_id', getAllAppointmentsOfPatientByIdHandler);
+patientsRouter.get('/dates/:patient_id', getAllReviewsOfPatientByIdHandler)
 patientsRouter.post('/', postSignupPatientHandler);
 patientsRouter.put('/:patient_id', updatePatientByIdHandler);
 patientsRouter.delete('/:patient_id', deletePatientByIdHandler);
