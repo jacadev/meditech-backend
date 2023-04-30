@@ -161,7 +161,7 @@ const preloadDoctors = [
     age: 45,
     gender: "Masculino",
     about_me:
-      "Soy un cirujano que se enfoca en brindar una atención médica de calidad y en ayudar a mis pacientes a mejorar su calidad de vida mediante procedimientos quirúrgicos seguros y eficaces.",
+      "Soy un cirujano que se enfoca en brindar una atención médica de calidad y en ayudar a mis pacientes.",
     profile_image:
       "https://www.proheadshots.ca/wp-content/uploads/2016/02/doctors-headshot.jpg",
     tuition_code: "CG 27893",
@@ -189,7 +189,7 @@ const preloadDoctors = [
     age: 54,
     gender: "Femenino",
     about_me:
-      "Me considero una pediatra comprometida con mis pacientes, enfocada en brindarles la mejor atención posible y ayudarlos a mejorar su salud. Mi especialidad en neumología pediátrica me permite tratar enfermedades respiratorias en niños con la mejor tecnología disponible.",
+      "Me considero una pediatra comprometida con mis pacientes, enfocada en brindarles la mejor atención posible y ayudarlos a mejorar su salud.",
     profile_image:
       "https://images.squarespace-cdn.com/content/v1/53aa5722e4b0ada1a70119f2/1529694594561-7ERUUT9270RZI2R946J1/CORP20180521-Freeman+%284+of+6%29-Edit.jpg",
     tuition_code: "PM 3569483",
@@ -213,7 +213,7 @@ const preloadDoctors = [
     age: 58,
     gender: "Masculino",
     about_me:
-      "Soy un cirujano comprometido con brindar la mejor atención quirúrgica a mis pacientes. Me especializo en cirugía general y de trauma, por lo que puedo atender una amplia variedad de lesiones y enfermedades quirúrgicas. Siempre trato de estar actualizado en las últimas técnicas y tecnologías para brindar la mejor atención a mis pacientes.",
+      "Soy un cirujano comprometido con brindar la mejor atención quirúrgica a mis pacientes. Me especializo en cirugía general y de trauma, por lo que puedo atender una amplia variedad de lesiones y enfermedades quirúrgicas.",
     profile_image:
       "https://i.pinimg.com/originals/35/57/55/355755832670880825ad87838e18d6b6.jpg",
     tuition_code: "CGT 22456",
@@ -237,7 +237,7 @@ const preloadDoctors = [
     age: 33,
     gender: "Femenino",
     about_me:
-      "profile_imageuna dermatóloga especializada en cosmetología. Me apasiona ayudar a mis pacientes a lograr una piel saludable y radiante mediante tratamientos y procedimientos dermatológicos avanzados. También ofrezco tratamientos cosméticos como rellenos dérmicos y botox para mejorar la apariencia de la piel y reducir las arrugas y líneas de expresión. Siempre me enfoco en brindar la mejor atención y resultados a mis pacientes.",
+      "Soy una dermatóloga especializada en cosmetología. Me apasiona ayudar a mis pacientes a lograr una piel saludable y radiante mediante tratamientos y procedimientos dermatológicos avanzados.",
     profile_image:
       "https://static8.depositphotos.com/1518767/1030/i/950/depositphotos_10304558-stock-photo-happy-female-doctor-writing-her.jpg",
     tuition_code: "DMC 32587",
