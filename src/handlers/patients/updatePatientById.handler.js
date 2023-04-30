@@ -2,9 +2,9 @@ const { updatePatientByIdController } = require('../../controllers');
 
 const updatePatientByIdHandler = async (req, res) => {
   const { patient_id } = req.params;
-  const {email, password, first_name, last_name, phone, gender, status} = req.body;
+  const {email, password, first_name, last_name, phone, gender, rol, status} = req.body;
   try {
-    const patientById = await updatePatientByIdController(patient_id, email, password, first_name, last_name, phone, gender, status);
+    const patientById = await updatePatientByIdController(patient_id, email, password, first_name, last_name, phone, gender, rol, status);
     return res.status(200).json(patientById);
     // return res.status(201).send('Paciente actualizado con éxito');
   } catch (error) {
