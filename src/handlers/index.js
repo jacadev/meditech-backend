@@ -53,10 +53,13 @@ const getAllTimetablesHandler = require('./timetables/getAllTimetables.handler')
 const postTimetableHandler = require('./timetables/postTimetable.handler');
 const updateTimetableByIdHandler = require('./timetables/updateTimetableById.handler');
 
-//Pay handlers
+// Pay handlers
 const postPayHandler = require('./pay/postPay.handler');
 const getPayHandler = require('./pay/getPay.handler');
 const getPayByIdHandler = require('./pay/getPayById.handler');
+
+// Person handlers
+const getPersonByNameHandler = require("./persons/getPersonByName.handler");
 
 module.exports = {
   getAllDoctorsHandler,
@@ -100,5 +103,6 @@ module.exports = {
   updateProfileSettingsPatientByIdHandler,
   postForgotHandler,
   getAllAppointmentsOfPatientByIdHandler,
-  postResetHandler
+  postResetHandler,
+  getPersonByNameHandler
 };

@@ -9,6 +9,7 @@ const disponibiltiesRouter = require("./disponibilties.routes");
 const daysRouter = require("./days.routes");
 const timetablesRouter = require("./timetables.routes");
 const paysRouter = require('./pays.routes')
+const personsRouter = require("./persons.routes")
 
 mainRouter.use("/doctors", doctorsRouter);
 mainRouter.use("/patients", patientsRouter);
@@ -19,6 +20,6 @@ mainRouter.use("/disponibilties", disponibiltiesRouter);
 mainRouter.use("/days", daysRouter);
 mainRouter.use("/timetables", timetablesRouter);
 mainRouter.use('/pays', paysRouter);
-
+mainRouter.use('/persons', personsRouter)
 
 module.exports = mainRouter;
