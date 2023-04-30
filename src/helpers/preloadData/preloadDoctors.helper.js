@@ -213,7 +213,7 @@ const preloadDoctors = [
     age: 58,
     gender: "Masculino",
     about_me:
-      "Soy un cirujano comprometido con brindar la mejor atención quirúrgica a mis pacientes. Me especializo en cirugía general y de trauma, por lo que puedo atender una amplia variedad de lesiones y enfermedades quirúrgicas.",
+      "Me especializo en cirugía general y de trauma, por lo que puedo atender una amplia variedad de lesiones y enfermedades quirúrgicas.",
     profile_image:
       "https://i.pinimg.com/originals/35/57/55/355755832670880825ad87838e18d6b6.jpg",
     tuition_code: "CGT 22456",
@@ -237,7 +237,7 @@ const preloadDoctors = [
     age: 33,
     gender: "Femenino",
     about_me:
-      "Soy una dermatóloga especializada en cosmetología. Me apasiona ayudar a mis pacientes a lograr una piel saludable y radiante mediante tratamientos y procedimientos dermatológicos avanzados.",
+      "Me apasiona ayudar a mis pacientes a lograr una piel saludable y radiante mediante tratamientos y procedimientos dermatológicos avanzados.",
     profile_image:
       "https://static8.depositphotos.com/1518767/1030/i/950/depositphotos_10304558-stock-photo-happy-female-doctor-writing-her.jpg",
     tuition_code: "DMC 32587",
