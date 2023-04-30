@@ -45,9 +45,6 @@ const getAllPatientsController = async () => {
       {
         model: Appointment,
         attributes: ["id", "date", "consultationReason"],
-        where: {
-          status: true
-        },
         include: [
           {
             model: Pay

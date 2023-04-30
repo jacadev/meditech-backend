@@ -47,11 +47,22 @@ Doctor.belongsTo(Person, {
   onDelete: "CASCADE"
 });
 
+Person.hasMany(Doctor, {
+  foreignKey: 'person_id',
+  onDelete: "CASCADE"
+});
+
 // relación entre Patient y Person
 Patient.belongsTo(Person, {
   foreignKey: 'person_id',
   onDelete: "CASCADE"
 })
+
+Person.hasMany(Patient, {
+  foreignKey: 'person_id',
+  onDelete: "CASCADE"
+});
+
 
 // relación entre rol y person
 Rol.hasMany(Person, {
