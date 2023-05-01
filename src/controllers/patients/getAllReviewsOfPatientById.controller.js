@@ -18,6 +18,7 @@ const getAllReviewsOfPatientByIdController = async (patient_id) => {
                     'age',
                     'gender',
                     'rol_id',
+                    'status'
                 ],
                 include: [
                     {

@@ -18,9 +18,9 @@ const updatePatientByIdController = async (patient_id, email, password, first_na
     if (last_name) updateData.last_name = last_name;
     if (phone) updateData.phone = phone;
     if (gender) updateData.gender = gender;
-    if (status) updateData.status = status;
+    updateData.status = status;
 
-    if(rol) await person.setRol(rol)
+    if(rol.length) await person.setRol(rol)
 
     await person.update(updateData)
     // await person.update({
@@ -32,7 +32,7 @@ const updatePatientByIdController = async (patient_id, email, password, first_na
     //   gender,
     //   status
     // });
-
+    return person
 };
 
 module.exports = updatePatientByIdController;
