@@ -9,7 +9,8 @@ const {
   preloadDaysHelper,
   preloadTimetablesHelper,
   preloadDisponibiltiesHelper,
-  preloadAppointmentsHelper
+  preloadAppointmentsHelper,
+  preloadPaysHelper,
 } = require("./src/helpers");
 const { sequelize, Specialty, Rol, Day, Timetable } = require("./src/db");
 const axios = require("axios");
@@ -54,6 +55,14 @@ app.listen(port, async () => {
       await axios.post(
         "http://localhost:3001/appointments",
         preloadAppointmentsHelper[i]
+      );
+    }
+
+    // preload Pays
+    for (let i = 0; i < preloadPaysHelper.length; i++) {
+      await axios.post(
+        "http://localhost:3001/pays",
+        preloadPaysHelper[i]
       );
     }
   });
