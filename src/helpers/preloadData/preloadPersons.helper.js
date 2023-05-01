@@ -9,7 +9,7 @@ const preloadPersons = [
     phone: ["9358478643", "3012587496"],
     age: 25,
     gender: "Masculino",
-    rol: [2],
+    rol: [3],
   },
   {
     user_name: "Bret",
