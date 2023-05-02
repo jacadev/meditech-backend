@@ -100,7 +100,7 @@ const preloadDoctors = [
       "Embarazo",
       "Cáncer de ovarios",
     ],
-    specialties: [7, 34],
+    specialties: [7, 8],
     rol_id: [1],
   },
   {
@@ -124,7 +124,7 @@ const preloadDoctors = [
       address: "Carrer de Provença",
     },
     diseases_treated: ["Carillas dentales", "Brackets", "Implantes dentales"],
-    specialties: [32, 22],
+    specialties: [9, 10],
     rol_id: [1],
   },
   {
@@ -148,7 +148,7 @@ const preloadDoctors = [
       address: "5th Ave",
     },
     diseases_treated: ["Ansiedad", "Depresión", "Trastornos del sueño"],
-    specialties: [3, 65],
+    specialties: [11, 12],
     rol_id: [1],
   },
   {
@@ -176,7 +176,7 @@ const preloadDoctors = [
       "Cálculos biliares",
       "Enfermedades del colon",
     ],
-    specialties: [53, 3],
+    specialties: [13, 14],
     rol_id: [1],
   },
   {
@@ -200,7 +200,7 @@ const preloadDoctors = [
       address: "Avenida Providencia",
     },
     diseases_treated: ["Asma", "Bronquitis", "Neumonía"],
-    specialties: [34, 22],
+    specialties: [15, 16],
     rol_id: [1],
   },
   {
@@ -224,7 +224,7 @@ const preloadDoctors = [
       address: "Avenida Corrientes",
     },
     diseases_treated: ["Hernias", "Apendicitis", "Fracturas"],
-    specialties: [53, 23],
+    specialties: [17, 18],
     rol_id: [1],
   },
   {
@@ -248,7 +248,7 @@ const preloadDoctors = [
       address: "Calle Insurgentes",
     },
     diseases_treated: ["Acné", "Rosácea", "Eczema"],
-    specialties: [45, 3],
+    specialties: [1, 3],
     rol_id: [1],
   },
   // Probando con más médicos
@@ -445,7 +445,7 @@ const preloadDoctors = [
       address: "Calle 72 #15-26"
     },
     diseases_treated: ["Problemas estomacales", "Colitis", "Enfermedad de Crohn"],
-    specialties: [1, 3],
+    specialties: [1, 19],
     rol_id: [1]
   },
   {
@@ -589,7 +589,7 @@ const preloadDoctors = [
       address: "Cra. 53 #75-196"
     },
     diseases_treated: ["Insuficiencia cardíaca", "Infarto agudo de miocardio", "Aneurisma aórtico"],
-    specialties: [3],
+    specialties: [18],
     rol_id: [1]
   },
   {
