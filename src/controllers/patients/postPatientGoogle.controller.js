@@ -14,11 +14,12 @@ const postPatientGoogleController = async (
 
   if (existingPerson) {
     // La persona ya existe, devolver el email y user_name de la persona existente
-    return { email: existingPerson.email, user_name: existingPerson.userName, id: existingPerson.id };
+    return { email: existingPerson.email, user_name: existingPerson.userName, id: existingPerson.id, first_name: existingPerson.userName };
   } else {
     // La persona no existe, crear una nueva persona
     const newPerson = await Person.create({
       userName: user_name,
+      firstName: user_name,
       email: email,
       rol_id: rol,
     });

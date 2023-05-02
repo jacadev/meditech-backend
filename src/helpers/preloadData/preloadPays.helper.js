@@ -12,17 +12,30 @@ const preloadPays = [
         
     },
     {
-        create_time: "2023-09-02",
-        email_address: "Shanna@melissa.tv",
-        address: "Av. Principal #456",
-        given_name:"Ervin",
-        surname: "Howell",
-        currency_code: "USD" ,
-        amount: 35.0,
+        create_time: "2023-05-30",
+        email_address: "Sherwood@rosamond.me",
+        address: "Calle 80 Autopista Sur, Torre Los Libertadores",
+        given_name:"Nicholas",
+        surname:"Runolfsdottir",
+        currency_code: "USD",
+        amount: 85.5,
         status: 'COMPLETED',
-        appointment_id : 3,
+        appointment_id : 7,
         
       
+    },
+    {
+        create_time: "2023-06-23",
+        email_address: "Julianne.OConner@kory.org",
+        address: "Av Calle 26, Carrera 50",
+        given_name:"Patricia",
+        surname: "Lebsack",
+        currency_code: "USD",
+        amount: 60.5,
+        status: 'COMPLETED',
+        appointment_id : 5,
+        
+       
     },
     {
         create_time: "2023-07-15",
@@ -51,19 +64,6 @@ const preloadPays = [
        
     },
     {
-        create_time: "2023-06-23",
-        email_address: "Julianne.OConner@kory.org",
-        address: "Av Calle 26, Carrera 50",
-        given_name:"Patricia",
-        surname: "Lebsack",
-        currency_code: "USD",
-        amount: 60.5,
-        status: 'COMPLETED',
-        appointment_id : 5,
-        
-       
-    },
-    {
         create_time: "2023-08-11",
         email_address: "Telly.Hoeger@billy.biz",
         address: "Calle 206, Avenida Autop Norte",
@@ -77,15 +77,26 @@ const preloadPays = [
        
     },
     {
-        create_time: "2023-05-30",
-        email_address: "Sherwood@rosamond.me",
-        address: "Calle 80 Autopista Sur, Torre Los Libertadores",
-        given_name:"Nicholas",
-        surname:"Runolfsdottir",
+        create_time: "2023-08-27",
+        email_address: "Rey.Padberg@karina.biz",
+        address: "Casa de Nariño, Presidencia de La Republica",
+        given_name:"Clementina",
+        surname: "DuBuque",
         currency_code: "USD",
-        amount: 85.5,
+        amount: 65.5,
         status: 'COMPLETED',
-        appointment_id : 7,
+        appointment_id : 9,
+    },
+    {
+        create_time: "2023-09-02",
+        email_address: "Shanna@melissa.tv",
+        address: "Av. Principal #456",
+        given_name:"Ervin",
+        surname: "Howell",
+        currency_code: "USD" ,
+        amount: 35.0,
+        status: 'COMPLETED',
+        appointment_id : 2,
         
       
     },
@@ -99,22 +110,10 @@ const preloadPays = [
         amount: 54.5,
         status: 'COMPLETED',
         appointment_id : 8,
-        
-       
     },
-    {
-        create_time: "2023-08-27",
-        email_address: "Rey.Padberg@karina.biz",
-        address: "Casa de Nariño, Presidencia de La Republica",
-        given_name:"Clementina",
-        surname: "DuBuque",
-        currency_code: "USD",
-        amount: 65.5,
-        status: 'COMPLETED',
-        appointment_id : 9,
-        
-        
-    },
+    
 ];
 
 module.exports = preloadPays;
+
+

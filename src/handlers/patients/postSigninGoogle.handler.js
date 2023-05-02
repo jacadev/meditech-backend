@@ -23,6 +23,7 @@ const postSigninGoogleHandler = async (req, res) => {
       res.send({
         id: patient.id,
         user_name: patientPosted.user_name,
+        first_name: patientPosted.first_name,
         email: patientPosted.email,
       });
   
