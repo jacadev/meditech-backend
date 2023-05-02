@@ -18,6 +18,7 @@ const postDoctorHandler = async (req, res) => {
     location, 
     diseases_treated,
     specialties,
+    preload
   } = req.body;
   
   try {
@@ -38,6 +39,7 @@ const postDoctorHandler = async (req, res) => {
       location, 
       diseases_treated,
       specialties,
+      preload
     );
     return res.status(201).json(doctorPosted);
   } catch (error) {

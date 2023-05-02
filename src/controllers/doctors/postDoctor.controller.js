@@ -1,6 +1,9 @@
 const { Doctor, Person } = require("../../db");
+const cloudinary = require('../../middlewares/cloudinary');
 
-const postDoctorController = async (user_name, email, password, first_name, last_name, phone, age, gender, rol_id, about_me, profile_image, tuition_code, consultation_cost, location, diseases_treated, specialties) => {
+const postDoctorController = async (user_name, email, password, first_name, last_name, phone, age, gender, rol_id, about_me, profile_image, tuition_code, consultation_cost, location, diseases_treated, specialties, preload) => {
+
+   
 
   const newPerson = await Person.create({
     userName: user_name, 
@@ -13,10 +16,22 @@ const postDoctorController = async (user_name, email, password, first_name, last
     gender,
     rol_id
   });
+
+  let cloudinaryUrl = '';
+
+  if(preload === false){
+    const result = await cloudinary.uploader.upload(profile_image, {
+      folder: "meditech",
+      // width: 300,
+      // crop: "scale"
+    });
+
+    cloudinaryUrl = result.secure_url;    
+  }
   
   const newDoctor = await Doctor.create({
     aboutMe: about_me, 
-    profileImage: profile_image, 
+    profileImage: preload === false ? cloudinaryUrl : profile_image, 
     tuitionCode: tuition_code, 
     consultationCost: consultation_cost, 
     location, 

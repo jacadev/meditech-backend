@@ -22,6 +22,7 @@ const preloadDoctors = [
     diseases_treated: ["Diabetes", "Hipertensión", "Insuficencia Venosa"],
     specialties: [1, 2],
     rol_id: [1],
+    preload: true,
   },
   {
     user_name: "dra_ana",
@@ -50,6 +51,7 @@ const preloadDoctors = [
     ],
     specialties: [3, 4],
     rol_id: [1],
+    preload: true,
   },
   {
     user_name: "doctor_jose",
@@ -74,6 +76,7 @@ const preloadDoctors = [
     diseases_treated: ["Caries", "Gingivitis", "Sensibilidad dental"],
     specialties: [5, 6],
     rol_id: [1],
+    preload: true,
   },
   {
     user_name: "doctor_ana",
@@ -102,6 +105,7 @@ const preloadDoctors = [
     ],
     specialties: [7, 8],
     rol_id: [1],
+    preload: true,
   },
   {
     user_name: "joseperez",
@@ -126,6 +130,7 @@ const preloadDoctors = [
     diseases_treated: ["Carillas dentales", "Brackets", "Implantes dentales"],
     specialties: [9, 10],
     rol_id: [1],
+    preload: true,
   },
   {
     user_name: "johndoe",
@@ -150,6 +155,7 @@ const preloadDoctors = [
     diseases_treated: ["Ansiedad", "Depresión", "Trastornos del sueño"],
     specialties: [11, 12],
     rol_id: [1],
+    preload: true,
   },
   {
     user_name: "pablovargas",
@@ -178,6 +184,7 @@ const preloadDoctors = [
     ],
     specialties: [13, 14],
     rol_id: [1],
+    preload: true,
   },
   {
     user_name: "carlabravo",
@@ -202,6 +209,7 @@ const preloadDoctors = [
     diseases_treated: ["Asma", "Bronquitis", "Neumonía"],
     specialties: [15, 16],
     rol_id: [1],
+    preload: true,
   },
   {
     user_name: "josearaujo",
@@ -226,6 +234,7 @@ const preloadDoctors = [
     diseases_treated: ["Hernias", "Apendicitis", "Fracturas"],
     specialties: [17, 18],
     rol_id: [1],
+    preload: true,
   },
   {
     user_name: "juliamorales",
@@ -250,6 +259,7 @@ const preloadDoctors = [
     diseases_treated: ["Acné", "Rosácea", "Eczema"],
     specialties: [1, 3],
     rol_id: [1],
+    preload: true,
   },
   // Probando con más médicos
   {
@@ -274,7 +284,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Gripe", "Bronquitis", "Asma"],
     specialties: [3, 5],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
   {
     user_name: "marianacastillo",
@@ -298,7 +309,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Artritis", "Artrosis", "Dolor de espalda"],
     specialties: [2, 5],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
   {
     user_name: "pedrogonzalez",
@@ -326,7 +338,8 @@ const preloadDoctors = [
       "Insuficiencia cardíaca"
     ],
     specialties: [1, 3],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
   {
     user_name: "javierrodriguez",
@@ -350,7 +363,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Cáncer", "Leucemia", "Linfoma"],
     specialties: [1, 4],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
   {
     user_name: "andresarango",
@@ -374,7 +388,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Depresión", "Ansiedad", "Trastornos del sueño"],
     specialties: [2, 4],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
   {
     user_name: "lucasmartinez",
@@ -398,7 +413,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Problemas renales", "Infecciones urinarias", "Cálculos renales"],
     specialties: [3, 5],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
   {
     user_name: "sofiaperez",
@@ -422,7 +438,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Infecciones respiratorias", "Alergias", "Neumonía"],
     specialties: [4, 5],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
   {
     user_name: "juanrojas",
@@ -446,7 +463,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Problemas estomacales", "Colitis", "Enfermedad de Crohn"],
     specialties: [1, 19],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
   {
     user_name: "ana_castro",
@@ -470,7 +488,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Caries", "Gingivitis", "Halitosis"],
     specialties: [1],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
   {
     user_name: "maria_fernandez",
@@ -494,7 +513,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Miopía", "Astigmatismo", "Cataratas"],
     specialties: [2],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
   {
     user_name: "julio_vargas",
@@ -518,7 +538,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Hipertensión arterial", "Enfermedad coronaria", "Arritmias cardíacas"],
     specialties: [3],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
   {
     user_name: "alejandro_perez",
@@ -542,7 +563,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Placa dental", "Sarro", "Dientes torcidos"],
     specialties: [1],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
   {
     user_name: "carolina_diaz",
@@ -566,7 +588,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Hipermetropía", "Glaucoma", "Degeneración macular"],
     specialties: [2],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
   {
     user_name: "daniel_jimenez",
@@ -590,7 +613,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Insuficiencia cardíaca", "Infarto agudo de miocardio", "Aneurisma aórtico"],
     specialties: [18],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
   {
     user_name: "mariana_gomez",
@@ -614,7 +638,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Mal aliento", "Sensibilidad dental", "Infecciones de encías"],
     specialties: [1],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
   {
     user_name: "pedro_gutierrez",
@@ -638,7 +663,8 @@ const preloadDoctors = [
     },
     diseases_treated: ["Conjuntivitis", "Ojo seco", "Desprendimiento de retina"],
     specialties: [2],
-    rol_id: [1]
+    rol_id: [1],
+    preload: true,
   },
 ];
 

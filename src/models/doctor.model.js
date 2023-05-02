@@ -17,7 +17,7 @@ module.exports = (sequelize) => {
       },
       profileImage: {
         field: "profile_image",
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       tuitionCode: {
