@@ -31,7 +31,7 @@ const updateDoctorByIdController = async (doctor_id, email, password, first_name
       diseasesTreated: diseases_treated
     });
     // console.log('los modelos de doctor', doctor.__proto__);
-    await doctor.setSpecialties(specialties);
+    if (specialties) await doctor.setSpecialties(specialties);
     await doctor.setDisponibilties(disponibilties_id);
     
     return "put realizado con exito"
