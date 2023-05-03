@@ -11,17 +11,16 @@ const postSigninHandler = async (req, res) => {
   if (user) {
     
     if (bcrypt.compareSync(req.body.password, user.password)) {
-      res.send({
+      return res.send({
         id: patient.id,
         user_name: user.userName,
         email: user.email,
         rol: user.rol_id,
         token: generateToken(user),
       });
-      return;
     }
   }
-  res.status(401).send({ message: 'Invalid email or password' });
+  return res.status(401).send({ message: 'Invalid email or password' });
 };
 
 module.exports = postSigninHandler;
