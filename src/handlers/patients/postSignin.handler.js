@@ -8,7 +8,7 @@ const postSigninHandler = async (req, res) => {
     where: { person_id: user.id },
     include: [{ model: Person, attributes: ['id'] }],
   });
-  if (user) {
+  if (user.status === true) {
     
     if (bcrypt.compareSync(req.body.password, user.password)) {
       return res.send({
