@@ -16,9 +16,9 @@ const getAllDoctorsController = async () => {
       {
         model: Person,
         attributes: ['user_name', 'email', 'first_name', 'last_name', 'phone', 'age', 'gender', 'password', 'status'],
-        where: {
-          status: true
-        },
+        // where: {
+        //   status: true
+        // },
         include: [
           {
             model: Rol,

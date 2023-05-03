@@ -18,9 +18,6 @@ const getAllPatientsController = async () => {
           'rol_id',
           'status'
         ],
-        where: {
-          status: true
-        },
         include: [
           {
             model: Rol,
