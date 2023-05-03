@@ -61,7 +61,7 @@ const postSigupPatientHandler = async (req, res) => {
       await sendMail(mailInfo, signupMessageHtml);
     }
   } catch (error) {
-    res.status(404).json({ error: error.message });
+    return res.status(404).json({ error: error.message });
    
   }
 };

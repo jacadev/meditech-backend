@@ -20,7 +20,7 @@ const postSigninGoogleHandler = async (req, res) => {
         include: [{ model: Person, attributes: ['id'] }],
       });
   
-      res.send({
+      return res.send({
         id: patient.id,
         user_name: patientPosted.user_name,
         first_name: patientPosted.first_name,
@@ -29,7 +29,7 @@ const postSigninGoogleHandler = async (req, res) => {
   
      
     } catch (error) {
-      res.status(404).json({ error: error.message });
+      return res.status(404).json({ error: error.message });
     }
   };
   

@@ -32,15 +32,15 @@ const postForgotHandler = async (req, res) => {
       user.codigosRecuperacion.push({ recoveryCode, expirationTime });
 
       await user.save();
-      res.status(200).send({
+      return res.status(200).send({
         message:
           `${user.userName}, se le ha enviado un código de recuperación a su correo electrónico,`
       });
     } else {
-      res.status(401).send({ message: "Correo electrónico inválido" });
+      return res.status(401).send({ message: "Correo electrónico inválido" });
     }
   } catch (error) {
-    res.status(500).send({ message: "Ha ocurrido un error en el servidor" });
+    return res.status(500).send({ message: "Ha ocurrido un error en el servidor" });
   }
 };
 

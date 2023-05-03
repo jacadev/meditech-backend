@@ -40,11 +40,11 @@ const postResetHandler = async (req, res) => {
     user.password = hashedPassword;
     user.codigosRecuperacion = null;
     await user.save();
-    res.status(200).send({ message: `${user.userName}, contraseña actualizada correctamente `} );
+    return res.status(200).send({ message: `${user.userName}, contraseña actualizada correctamente `} );
   } catch (error) {
       user.codigosRecuperacion = null;
       await user.save();
-      res.status(500).send({ message: 'Error servidor' });
+      return res.status(500).send({ message: 'Error servidor' });
     }
     
 };

@@ -12,7 +12,6 @@ const getPatientByNameHandler = require('./patients/getPatientByName.handler');
 const getPatientByIdHandler = require('./patients/getPatientById.handler');
 const postSignupPatientHandler = require('./patients/postSignupPatient.handler');
 const updatePatientByIdHandler = require('./patients/updatePatientById.handler');
-const deletePatientByIdHandler = require('./patients/deletePatientById.handler');
 const postSigninHandler = require('./patients/postSignin.handler');
 const postSigninGoogleHandler = require('./patients/postSigninGoogle.handler');
 const updateProfileSettingsPatientByIdHandler = require("./patients/updateProfileSettingsPatientById.handler")
@@ -74,7 +73,6 @@ module.exports = {
   getPatientByIdHandler,
   postSignupPatientHandler,
   updatePatientByIdHandler,
-  deletePatientByIdHandler,
   getAllSpecialtiesHandler,
   postSpecialtieHandler,
   updateSpecialtieByIdHandler,

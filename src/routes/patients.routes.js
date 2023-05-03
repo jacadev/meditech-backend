@@ -6,7 +6,6 @@ const {
   getPatientByIdHandler,
   postSignupPatientHandler,
   updatePatientByIdHandler,
-  deletePatientByIdHandler,
   postSigninHandler,
   postSigninGoogleHandler,
   updateProfileSettingsPatientByIdHandler,
@@ -23,7 +22,6 @@ patientsRouter.get('/appointments/:patient_id', getAllAppointmentsOfPatientByIdH
 patientsRouter.get('/dates/:patient_id', getAllReviewsOfPatientByIdHandler)
 patientsRouter.post('/', postSignupPatientHandler);
 patientsRouter.put('/:patient_id', updatePatientByIdHandler);
-patientsRouter.delete('/:patient_id', deletePatientByIdHandler);
 patientsRouter.post('/signin', postSigninHandler);
 patientsRouter.post("/signinGoogle", postSigninGoogleHandler)
 patientsRouter.post("/forgotpassword", postForgotHandler)

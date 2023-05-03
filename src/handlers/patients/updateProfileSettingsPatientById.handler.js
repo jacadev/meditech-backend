@@ -16,7 +16,7 @@ const updateProfileSettingsPatientByIdHandler = async (req, res) => {
     );
   
     
-    res.send({
+    return res.send({
       id: patient_id,
       user_name: patientById.userName,
       email: patientById.email,
