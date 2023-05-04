@@ -15,7 +15,7 @@ const getDoctorByIdController = async (doctor_id) => {
       },
       {
         model: Person,
-        attributes: ['userName', 'email', 'firstName', 'lastName', 'phone', 'age', 'gender', 'rol_id'],
+        attributes: ['userName', 'email', 'firstName', 'lastName', 'phone', 'age', 'gender', 'rol_id', 'status'],
         include: [
           {
             model: Rol,

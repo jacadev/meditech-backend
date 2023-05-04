@@ -1,6 +1,6 @@
 const { Doctor, Person } = require("../../db");
 
-const updateDoctorByIdController = async (doctor_id, email, password, first_name, last_name, phone, gender, status, about_me, profile_image, tuition_code, consultation_cost, location, diseases_treated, disponibilties_id, specialties) => {
+const updateDoctorByIdController = async (doctor_id, email, age, first_name, last_name, phone, status, about_me, profile_image, consultation_cost, location, diseases_treated, disponibilties_id, specialties) => {
 
   const doctor = await Doctor.findByPk(doctor_id);
     if (!doctor) {
@@ -14,18 +14,16 @@ const updateDoctorByIdController = async (doctor_id, email, password, first_name
 
     await person.update({
       email,
-      password,
       firstName: first_name,
       lastName: last_name,
       phone,
-      gender,
+      age,
       status
     });
 
     await doctor.update({
       aboutMe: about_me,
       profileImage: profile_image,
-      tuitionCode: tuition_code,
       consultationCost: consultation_cost,
       location,
       diseasesTreated: diseases_treated
