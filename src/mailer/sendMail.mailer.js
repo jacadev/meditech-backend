@@ -3,12 +3,12 @@ const nodemailer = require('nodemailer');
 const sendMail = async (userData, template) => {
   try {
     let transporter = nodemailer.createTransport({
-      host: 'smtp-relay.brevo.com',
+      host: 'smtp-relay.sendinblue.com',
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
-        user: 'jesus@etereoworks.com', // generated ethereal user
-        pass: '8dxgbp0KIPJNQTCq', // generated ethereal password
+        user: 'filleral19@gmail.com', // generated ethereal user
+        pass: 'taPGc9TF813RAZbD', // generated ethereal password
       },
     });
 
