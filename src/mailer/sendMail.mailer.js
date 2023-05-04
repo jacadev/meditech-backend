@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const sendMail = async (userData, template) => {
   try {
     let transporter = nodemailer.createTransport({
-      host: 'smtp-relay.sendinblue.com',
+      host: 'smtp-relay.brevo.com',
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
