@@ -4,12 +4,13 @@ const { generateToken } = require('../../helpers/utils.herlper');
 
 const postSigninHandler = async (req, res) => {
   const user = await Person.findOne({ where: { email: req.body.email } });
-  const patient = await Patient.findOne({
-    where: { person_id: user.id },
-    include: [{ model: Person, attributes: ['id'] }],
-  });
-  if (user.status === true) {
-    
+
+  if (user && user.status === true) {
+    const patient = await Patient.findOne({
+      where: { person_id: user.id },
+      include: [{ model: Person, attributes: ['id'] }],
+    });
+
     if (bcrypt.compareSync(req.body.password, user.password)) {
       return res.send({
         id: patient.id,
@@ -24,5 +25,3 @@ const postSigninHandler = async (req, res) => {
 };
 
 module.exports = postSigninHandler;
-
-
