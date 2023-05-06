@@ -20,7 +20,8 @@ const getPatientByNameController = async (patientName) => {
           [Op.or]: [
             { first_name: { [Op.like]: `%${nameFilter}%` } },
             { last_name: { [Op.like]: `%${nameFilter}%` } },
-            { [Op.and]: literal(`lower(concat("first_name", ' ', "last_name")) like '%${nameFilter}%'`) }
+            { [Op.and]: literal(`lower(concat("first_name", ' ', "last_name")) like '%${nameFilter}%'`) },
+            { userName: { [Op.like]: `%${nameFilter}%` } }
           ]
         }
       },
